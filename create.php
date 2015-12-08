@@ -149,6 +149,69 @@ if (empty($project_name)) {
 
 ?>
 
+<!-- REZERWOWANIE PROJEKTU -->
+<?php
+
+$id_student = $_POST['id_student'];
+$project_number = $_POST['project_number'];
+
+?>
+
+<h1>Zarezerwuj temat projektu</h1>
+<form action="" method="post">
+  <fieldset>
+    <legend>Zarezerwuj temat</legend>
+    <label>
+      Wybierz swoje nazwisko:<br>
+      <select name="id_student">
+        <option selected disabled>&mdash;</option>
+        <?php
+
+        $result = mysql_query("SELECT id_osoby, imie, nazwisko FROM Osoba NATURAL JOIN Student") or die('Błąd w zapytaniu');
+        while ($row = mysql_fetch_array($result)) {
+          echo '<option value="'.$row[0].'">'.$row[1].' '.$row[2].'</option>';
+        }
+
+        ?>
+      </select>
+    </label>
+
+    <br>
+    <br>
+
+    <label>
+      Wybierz temat z listy:<br>
+      <ol>
+      <?php
+
+      $result = mysql_query('SELECT * FROM Projekt') or die('Błąd w zapytaniu');
+      while ($row = mysql_fetch_array($result)) {
+        echo '<li>
+                <label>
+                  <input type="radio" name="project_number" value="'.$row[0].'">
+                  '.$row[1].'
+                </label>
+              </li>';
+      }
+
+      ?>
+      </ol>
+    </label>
+  </fieldset>
+  <input type="submit" value="Zarezerwuj wybrany temat">
+</form>
+
+<?php
+
+if (empty($id_student) || empty($project_number)) {
+  echo 'Błąd! Zmienna jest pusta.';
+} else {
+  mysql_query("UPDATE Student SET nr_projektu = $project_number WHERE id_osoby = $id_student") or die('Błąd w zapytaniu');
+  echo "Wybrany projekt został przez Ciebie zarezerwowany.";
+}
+
+?>
+
 <!-- ZGŁASZANIE WYKONANIA PROJEKTU -->
 <?php
 
