@@ -3,10 +3,10 @@
 <!-- DODAWANIE STUDENTA -->
 <?php
 
-$first_name = $_POST['first_name'];
-$last_name = $_POST['last_name'];
-$email = $_POST['email'];
-$group = $_POST['group'];
+$first_name = trim($_POST['first_name']);
+$last_name = trim($_POST['last_name']);
+$email = trim($_POST['email']);
+$group = trim($_POST['group']);
 
 ?>
 
@@ -69,10 +69,10 @@ if (empty($first_name) || empty($last_name) || empty($email) || empty($group)) {
 <!-- DODAWANIE PROFESORA -->
 <?php
 
-$first_name = $_POST['first_name'];
-$last_name = $_POST['last_name'];
-$email = $_POST['email'];
-$school_subject = $_POST['school_subject'];
+$first_name = trim($_POST['first_name']);
+$last_name = trim($_POST['last_name']);
+$email = trim($_POST['email']);
+$school_subject = trim($_POST['school_subject']);
 
 ?>
 
@@ -138,7 +138,7 @@ if (empty($first_name) || empty($last_name) || empty($email) || empty($school_su
 
 <?php
 
-$project_name = $_POST['project_name'];
+$project_name = trim($_POST['project_name']);
 
 if (empty($project_name)) {
   echo 'Błąd! Zmienna jest pusta.';
@@ -152,8 +152,8 @@ if (empty($project_name)) {
 <!-- REZERWOWANIE PROJEKTU -->
 <?php
 
-$id_student = $_POST['id_student'];
-$project_number = $_POST['project_number'];
+$id_student = trim($_POST['id_student']);
+$project_number = trim($_POST['project_number']);
 
 ?>
 
@@ -215,8 +215,8 @@ if (empty($id_student) || empty($project_number)) {
 <!-- ZGŁASZANIE WYKONANIA PROJEKTU -->
 <?php
 
-$id_student = $_POST['id_student'];
-$submission_date = $_POST['submission_date'];
+$id_student = trim($_POST['id_student']);
+$submission_date = trim($_POST['submission_date']);
 
 ?>
 
