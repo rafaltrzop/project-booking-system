@@ -1,4 +1,8 @@
-### Utwórz potrzebne tabele
+### Usuń stare tabele
+
+DROP TABLE IF EXISTS Osoba, Student, Profesor, Projekt, Wykonany_projekt;
+
+### Utwórz nowe tabele
 
 CREATE TABLE Osoba
 (
