@@ -57,10 +57,10 @@ $group = trim($_POST['group']);
 if (empty($first_name) || empty($last_name) || empty($email) || empty($group)) {
   echo 'Błąd! Zmienna jest pusta.';
 } else {
-  mysql_query("INSERT INTO Osoba(email, imie, nazwisko) VALUES('$email', '$first_name', '$last_name')") or die('Błąd w zapytaniu');
+  mysql_query("INSERT INTO Osoba(email, imie, nazwisko) VALUES('$email', '$first_name', '$last_name')") or die(mysql_error());
   $id_osoby = mysql_insert_id();
 
-  mysql_query("INSERT INTO Student(id_osoby, grupa) VALUES($id_osoby, $group)") or die('Błąd w zapytaniu');
+  mysql_query("INSERT INTO Student(id_osoby, grupa) VALUES($id_osoby, $group)") or die(mysql_error());
   echo "Dodano studenta: $first_name $last_name";
 }
 
@@ -118,9 +118,9 @@ $school_subject = trim($_POST['school_subject']);
 if (empty($first_name) || empty($last_name) || empty($email) || empty($school_subject)) {
   echo 'Błąd! Zmienna jest pusta.';
 } else {
-  mysql_query("INSERT INTO Osoba(email, imie, nazwisko) VALUES('$email', '$first_name', '$last_name')") or die('Błąd w zapytaniu');
+  mysql_query("INSERT INTO Osoba(email, imie, nazwisko) VALUES('$email', '$first_name', '$last_name')") or die(mysql_error());
   $id_osoby = mysql_insert_id();
-  mysql_query("INSERT INTO Profesor VALUES($id_osoby, '$school_subject')") or die('Błąd w zapytaniu');
+  mysql_query("INSERT INTO Profesor VALUES($id_osoby, '$school_subject')") or die(mysql_error());
   echo "Dodano profesora: $first_name $last_name";
 }
 
@@ -143,7 +143,7 @@ $project_name = trim($_POST['project_name']);
 if (empty($project_name)) {
   echo 'Błąd! Zmienna jest pusta.';
 } else {
-  mysql_query("INSERT INTO Projekt(temat) VALUES('$project_name')") or die('Błąd w zapytaniu');
+  mysql_query("INSERT INTO Projekt(temat) VALUES('$project_name')") or die(mysql_error());
   echo "Dodano projekt: $project_name";
 }
 
@@ -167,7 +167,7 @@ $project_number = trim($_POST['project_number']);
         <option selected disabled>&mdash;</option>
         <?php
 
-        $result = mysql_query("SELECT id_osoby, imie, nazwisko FROM Osoba NATURAL JOIN Student") or die('Błąd w zapytaniu');
+        $result = mysql_query("SELECT id_osoby, imie, nazwisko FROM Osoba NATURAL JOIN Student") or die(mysql_error());
         while ($row = mysql_fetch_array($result)) {
           echo '<option value="'.$row[0].'">'.$row[1].' '.$row[2].'</option>';
         }
@@ -184,7 +184,7 @@ $project_number = trim($_POST['project_number']);
       <ol>
       <?php
 
-      $result = mysql_query('SELECT * FROM Projekt') or die('Błąd w zapytaniu');
+      $result = mysql_query('SELECT * FROM Projekt') or die(mysql_error());
       while ($row = mysql_fetch_array($result)) {
         echo '<li>
                 <label>
@@ -206,7 +206,7 @@ $project_number = trim($_POST['project_number']);
 if (empty($id_student) || empty($project_number)) {
   echo 'Błąd! Zmienna jest pusta.';
 } else {
-  mysql_query("UPDATE Student SET nr_projektu = $project_number WHERE id_osoby = $id_student") or die('Błąd w zapytaniu');
+  mysql_query("UPDATE Student SET nr_projektu = $project_number WHERE id_osoby = $id_student") or die(mysql_error());
   echo "Wybrany projekt został przez Ciebie zarezerwowany.";
 }
 
@@ -228,7 +228,7 @@ $submission_date = trim($_POST['submission_date']);
       <option selected disabled>&mdash;</option>
       <?php
 
-      $result = mysql_query("SELECT id_osoby, imie, nazwisko FROM Osoba NATURAL JOIN Student") or die('Błąd w zapytaniu');
+      $result = mysql_query("SELECT id_osoby, imie, nazwisko FROM Osoba NATURAL JOIN Student") or die(mysql_error());
       while ($row = mysql_fetch_array($result)) {
         echo '<option value="'.$row[0].'">'.$row[1].' '.$row[2].'</option>';
       }
@@ -246,7 +246,7 @@ $submission_date = trim($_POST['submission_date']);
 if (empty($id_student) || empty($submission_date)) {
   echo 'Błąd! Zmienna jest pusta.';
 } else {
-  mysql_query("INSERT INTO Wykonany_projekt(id_osoby_student, data_oddania) VALUES('$id_student', '$submission_date')") or die('Błąd w zapytaniu');
+  mysql_query("INSERT INTO Wykonany_projekt(id_osoby_student, data_oddania) VALUES('$id_student', '$submission_date')") or die(mysql_error());
   echo "Twój projekt został oznaczony jako wykonany i zgłoszony do oceny.";
 }
 
