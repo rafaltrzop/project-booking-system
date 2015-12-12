@@ -60,7 +60,7 @@ if (!empty($first_name) && !empty($last_name) && !empty($email) && !empty($group
   $id_osoby = mysql_insert_id();
   mysql_query("INSERT INTO Student(id_osoby, grupa) VALUES($id_osoby, $group)") or die(mysql_error());
 
-  echo "Dodano studenta: $first_name $last_name";
+  echo "<p>Dodano studenta: $first_name $last_name</p>";
 }
 
 ?>
@@ -120,7 +120,7 @@ if (!empty($first_name) && !empty($last_name) && !empty($email) && !empty($schoo
   $id_osoby = mysql_insert_id();
   mysql_query("INSERT INTO Profesor VALUES($id_osoby, '$school_subject')") or die(mysql_error());
 
-  echo "Dodano profesora: $first_name $last_name";
+  echo "<p>Dodano profesora: $first_name $last_name</p>";
 }
 
 ?>
@@ -141,7 +141,7 @@ $project_name = trim($_POST['project_name']);
 
 if (!empty($project_name)) {
   mysql_query("INSERT INTO Projekt(temat) VALUES('$project_name')") or die(mysql_error());
-  echo "Dodano projekt: $project_name";
+  echo "<p>Dodano projekt: $project_name</p>";
 }
 
 ?>
@@ -202,7 +202,7 @@ $project_number = trim($_POST['project_number']);
 
 if (!empty($id_student) && !empty($project_number)) {
   mysql_query("UPDATE Student SET nr_projektu = $project_number WHERE id_osoby = $id_student") or die(mysql_error());
-  echo "Wybrany projekt został przez Ciebie zarezerwowany.";
+  echo "<p>Wybrany projekt został przez Ciebie zarezerwowany.</p>";
 }
 
 ?>
@@ -242,10 +242,10 @@ if (!empty($id_student)) {
 
 
   if ($submitted_already) {
-    echo "<p>Zgłosiłeś już swój projekt do oceny, nie możesz zrobić tego jeszcze raz!</p>";
+    echo '<p>Zgłosiłeś już swój projekt do oceny, nie możesz zrobić tego jeszcze raz!</p>';
   } else {
     mysql_query("INSERT INTO Wykonany_projekt(id_osoby_student, data_oddania) VALUES($id_student, NOW())") or die(mysql_error());
-    echo "<p>Twój projekt został oznaczony jako wykonany i zgłoszony do oceny.</p>";
+    echo '<p>Twój projekt został oznaczony jako wykonany i zgłoszony do oceny.</p>';
   }
 }
 
