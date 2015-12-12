@@ -237,8 +237,16 @@ $id_student = trim($_POST['id_student']);
 <?php
 
 if (!empty($id_student)) {
-  mysql_query("INSERT INTO Wykonany_projekt(id_osoby_student, data_oddania) VALUES('$id_student', NOW())") or die(mysql_error());
-  echo "Twój projekt został oznaczony jako wykonany i zgłoszony do oceny.";
+  $result = mysql_query("SELECT * FROM Wykonany_projekt WHERE id_osoby_student = $id_student") or die(mysql_error());
+  $submitted_already = mysql_num_rows($result);
+
+
+  if ($submitted_already) {
+    echo "<p>Zgłosiłeś już swój projekt do oceny, nie możesz zrobić tego jeszcze raz!</p>";
+  } else {
+    mysql_query("INSERT INTO Wykonany_projekt(id_osoby_student, data_oddania) VALUES($id_student, NOW())") or die(mysql_error());
+    echo "<p>Twój projekt został oznaczony jako wykonany i zgłoszony do oceny.</p>";
+  }
 }
 
 ?>
