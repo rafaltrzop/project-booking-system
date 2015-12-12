@@ -2,9 +2,9 @@
 
 # Credentials
 $dbhost = 'localhost';
-$dbuser = '14_trzop';
+$dbuser = 'user';
 $dbpass = 'password';
-$dbname = '14_trzop';
+$dbname = 'database';
 
 # Set up a connection
 $conn = mysql_connect($dbhost, $dbuser, $dbpass);
