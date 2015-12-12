@@ -16,7 +16,7 @@ $group = trim($_POST['group']);
     <legend>Dodaj studenta</legend>
     <label>
       Imię:<br>
-      <input type="text" name="first_name" placeholder="Jan" value="<?= $first_name ?>">
+      <input type="text" name="first_name" placeholder="Jan" value="<?= $first_name ?>" required>
     </label>
 
     <br>
@@ -24,7 +24,7 @@ $group = trim($_POST['group']);
 
     <label>
       Nazwisko:<br>
-      <input type="text" name="last_name" placeholder="Kowalski" value="<?= $last_name ?>">
+      <input type="text" name="last_name" placeholder="Kowalski" value="<?= $last_name ?>" required>
     </label>
 
     <br>
@@ -32,7 +32,7 @@ $group = trim($_POST['group']);
 
     <label>
       E-mail:<br>
-      <input type="email" name="email" placeholder="email@domena.pl" value="<?= $email ?>">
+      <input type="email" name="email" placeholder="email@domena.pl" value="<?= $email ?>" required>
     </label>
 
     <br>
@@ -40,7 +40,7 @@ $group = trim($_POST['group']);
 
     <label>
       Grupa:<br>
-      <select name="group">
+      <select name="group" required>
         <option <?php if (empty($group)) echo 'selected' ?> disabled>&mdash;</option>
         <option value="1" <?php if ($group == 1) echo 'selected' ?>>1</option>
         <option value="2" <?php if ($group == 2) echo 'selected' ?>>2</option>
@@ -54,13 +54,12 @@ $group = trim($_POST['group']);
 
 <?php
 
-if (empty($first_name) || empty($last_name) || empty($email) || empty($group)) {
-  echo 'Błąd! Zmienna jest pusta.';
-} else {
+if (!empty($first_name) && !empty($last_name) && !empty($email) && !empty($group)) {
   mysql_query("INSERT INTO Osoba(email, imie, nazwisko) VALUES('$email', '$first_name', '$last_name')") or die(mysql_error());
-  $id_osoby = mysql_insert_id();
 
+  $id_osoby = mysql_insert_id();
   mysql_query("INSERT INTO Student(id_osoby, grupa) VALUES($id_osoby, $group)") or die(mysql_error());
+
   echo "Dodano studenta: $first_name $last_name";
 }
 
@@ -82,7 +81,7 @@ $school_subject = trim($_POST['school_subject']);
     <legend>Dodaj profesora</legend>
     <label>
       Imię:<br>
-      <input type="text" name="first_name" placeholder="Jan" value="<?= $first_name ?>">
+      <input type="text" name="first_name" placeholder="Jan" value="<?= $first_name ?>" required>
     </label>
 
     <br>
@@ -90,7 +89,7 @@ $school_subject = trim($_POST['school_subject']);
 
     <label>
       Nazwisko:<br>
-      <input type="text" name="last_name" placeholder="Kowalski" value="<?= $last_name ?>">
+      <input type="text" name="last_name" placeholder="Kowalski" value="<?= $last_name ?>" required>
     </label>
 
     <br>
@@ -98,7 +97,7 @@ $school_subject = trim($_POST['school_subject']);
 
     <label>
       E-mail:<br>
-      <input type="email" name="email" placeholder="email@domena.pl" value="<?= $email ?>">
+      <input type="email" name="email" placeholder="email@domena.pl" value="<?= $email ?>" required>
     </label>
 
     <br>
@@ -106,7 +105,7 @@ $school_subject = trim($_POST['school_subject']);
 
     <label>
       Wykładany przedmiot:<br>
-      <input type="text" name="school_subject" value="<?= $school_subject ?>">
+      <input type="text" name="school_subject" value="<?= $school_subject ?>" required>
     </label>
   </fieldset>
 
@@ -115,12 +114,12 @@ $school_subject = trim($_POST['school_subject']);
 
 <?php
 
-if (empty($first_name) || empty($last_name) || empty($email) || empty($school_subject)) {
-  echo 'Błąd! Zmienna jest pusta.';
-} else {
+if (!empty($first_name) && !empty($last_name) && !empty($email) && !empty($school_subject)) {
   mysql_query("INSERT INTO Osoba(email, imie, nazwisko) VALUES('$email', '$first_name', '$last_name')") or die(mysql_error());
+
   $id_osoby = mysql_insert_id();
   mysql_query("INSERT INTO Profesor VALUES($id_osoby, '$school_subject')") or die(mysql_error());
+
   echo "Dodano profesora: $first_name $last_name";
 }
 
@@ -140,9 +139,7 @@ if (empty($first_name) || empty($last_name) || empty($email) || empty($school_su
 
 $project_name = trim($_POST['project_name']);
 
-if (empty($project_name)) {
-  echo 'Błąd! Zmienna jest pusta.';
-} else {
+if (!empty($project_name)) {
   mysql_query("INSERT INTO Projekt(temat) VALUES('$project_name')") or die(mysql_error());
   echo "Dodano projekt: $project_name";
 }
@@ -163,7 +160,7 @@ $project_number = trim($_POST['project_number']);
     <legend>Zarezerwuj temat</legend>
     <label>
       Wybierz swoje nazwisko:<br>
-      <select name="id_student">
+      <select name="id_student" required>
         <option selected disabled>&mdash;</option>
         <?php
 
@@ -188,7 +185,7 @@ $project_number = trim($_POST['project_number']);
       while ($row = mysql_fetch_array($result)) {
         echo '<li>
                 <label>
-                  <input type="radio" name="project_number" value="'.$row[0].'">
+                  <input type="radio" name="project_number" value="'.$row[0].'" required>
                   '.$row[1].'
                 </label>
               </li>';
@@ -203,9 +200,7 @@ $project_number = trim($_POST['project_number']);
 
 <?php
 
-if (empty($id_student) || empty($project_number)) {
-  echo 'Błąd! Zmienna jest pusta.';
-} else {
+if (!empty($id_student) && !empty($project_number)) {
   mysql_query("UPDATE Student SET nr_projektu = $project_number WHERE id_osoby = $id_student") or die(mysql_error());
   echo "Wybrany projekt został przez Ciebie zarezerwowany.";
 }
@@ -216,7 +211,6 @@ if (empty($id_student) || empty($project_number)) {
 <?php
 
 $id_student = trim($_POST['id_student']);
-$submission_date = trim($_POST['submission_date']);
 
 ?>
 
@@ -224,7 +218,7 @@ $submission_date = trim($_POST['submission_date']);
 <form action="" method="post" onsubmit="return confirm('Czy aby na pewno chcesz zgłosić swój projekt do oceny?');">
   <label>
     Wybierz swoje nazwisko:<br>
-    <select name="id_student">
+    <select name="id_student" required>
       <option selected disabled>&mdash;</option>
       <?php
 
@@ -237,16 +231,13 @@ $submission_date = trim($_POST['submission_date']);
     </select>
   </label>
 
-  <input type="hidden" name="submission_date" value="<?= date('Y-m-d') ?>">
   <input type="submit" value="Zgłoś projekt do oceny">
 </form>
 
 <?php
 
-if (empty($id_student) || empty($submission_date)) {
-  echo 'Błąd! Zmienna jest pusta.';
-} else {
-  mysql_query("INSERT INTO Wykonany_projekt(id_osoby_student, data_oddania) VALUES('$id_student', '$submission_date')") or die(mysql_error());
+if (!empty($id_student)) {
+  mysql_query("INSERT INTO Wykonany_projekt(id_osoby_student, data_oddania) VALUES('$id_student', NOW())") or die(mysql_error());
   echo "Twój projekt został oznaczony jako wykonany i zgłoszony do oceny.";
 }
 
