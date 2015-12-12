@@ -222,7 +222,7 @@ $id_student = trim($_POST['id_student']);
       <option selected disabled>&mdash;</option>
       <?php
 
-      $result = mysql_query("SELECT id_osoby, imie, nazwisko FROM Osoba NATURAL JOIN Student") or die(mysql_error());
+      $result = mysql_query("SELECT id_osoby, imie, nazwisko FROM Osoba NATURAL JOIN Student WHERE nr_projektu IS NOT NULL") or die(mysql_error());
       while ($row = mysql_fetch_array($result)) {
         echo '<option value="'.$row[0].'">'.$row[1].' '.$row[2].'</option>';
       }
