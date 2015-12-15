@@ -36,7 +36,7 @@ CREATE TABLE Wykonany_projekt
 id_osoby_student INT PRIMARY KEY,
 id_osoby_profesor INT DEFAULT NULL,
 data_oddania DATE,
-ocena CHAR(3) DEFAULT NULL
+ocena DECIMAL(2,1) DEFAULT NULL
 );
 
 ### Dodaj przykładowe osoby do bazy
