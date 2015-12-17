@@ -4,6 +4,12 @@ DROP TABLE IF EXISTS Osoba, Student, Profesor, Projekt, Wykonany_projekt;
 
 ### Utwórz nowe tabele
 
+CREATE TABLE Projekt
+(
+nr_projektu INT PRIMARY KEY AUTO_INCREMENT,
+temat VARCHAR(255)
+) ENGINE = INNODB;
+
 CREATE TABLE Osoba
 (
 id_osoby INT PRIMARY KEY AUTO_INCREMENT,
@@ -16,19 +22,14 @@ CREATE TABLE Student
 (
 id_osoby INT PRIMARY KEY,
 grupa INT,
-nr_projektu INT DEFAULT NULL
-);
+nr_projektu INT DEFAULT NULL,
+FOREIGN KEY (nr_projektu) REFERENCES Projekt(nr_projektu) ON DELETE SET NULL
+) ENGINE = INNODB;
 
 CREATE TABLE Profesor
 (
 id_osoby INT PRIMARY KEY,
 wykladany_przedmiot VARCHAR(50)
-);
-
-CREATE TABLE Projekt
-(
-nr_projektu INT PRIMARY KEY AUTO_INCREMENT,
-temat VARCHAR(255)
 );
 
 CREATE TABLE Wykonany_projekt
@@ -38,6 +39,28 @@ id_osoby_profesor INT DEFAULT NULL,
 data_oddania DATE,
 ocena DECIMAL(2,1) DEFAULT NULL
 );
+
+### Dodaj tematy projektów do bazy
+
+INSERT INTO Projekt(temat) VALUES
+('Rejestracja czasu pracy'),
+('Ewidencja płatności za wynajem mieszkań'),
+('Strona z wynikami ligowymi'),
+('Magazyn towarów'),
+('Wypożyczalnia filmów'),
+('Biblioteka książek'),
+('Stacja krwiodawstwa'),
+('Wypożyczalnia samochodów'),
+('System rezerwacji biletów'),
+('Pizzeria'),
+('Rezerwacja terminów dla zakładu usługowego'),
+('System rezerwacji tematów projektów'),
+('System parkingowy'),
+('Dziennik ocen'),
+('System zarządzania szpitalem'),
+('System zarządzania wypłatami pracowników'),
+('Galeria obrazów'),
+('Hurtownia');
 
 ### Dodaj przykładowe osoby do bazy
 
@@ -74,28 +97,6 @@ INSERT INTO Student VALUES
 INSERT INTO Profesor VALUES
 (11, 'Bazy danych 2 (wykład)'),
 (12, 'Bazy danych 2 (ćwiczenia)');
-
-### Dodaj tematy projektów do bazy
-
-INSERT INTO Projekt(temat) VALUES
-('Rejestracja czasu pracy'),
-('Ewidencja płatności za wynajem mieszkań'),
-('Strona z wynikami ligowymi'),
-('Magazyn towarów'),
-('Wypożyczalnia filmów'),
-('Biblioteka książek'),
-('Stacja krwiodawstwa'),
-('Wypożyczalnia samochodów'),
-('System rezerwacji biletów'),
-('Pizzeria'),
-('Rezerwacja terminów dla zakładu usługowego'),
-('System rezerwacji tematów projektów'),
-('System parkingowy'),
-('Dziennik ocen'),
-('System zarządzania szpitalem'),
-('System zarządzania wypłatami pracowników'),
-('Galeria obrazów'),
-('Hurtownia');
 
 ### Dodaj wykonane projekty do bazy
 
