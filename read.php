@@ -12,7 +12,7 @@ echo '<h1>Osoba</h1>
           <th>nazwisko</th>
         </tr>';
 
-$result = mysql_query('SELECT * FROM Osoba') or die('Błąd w zapytaniu');
+$result = mysql_query('SELECT * FROM Osoba') or die(mysql_error());
 while ($row = mysql_fetch_array($result)) {
   echo "<tr>
           <td>$row[0]</td>
@@ -32,7 +32,7 @@ echo '<h1>Student</h1>
           <th>nr_projektu</th>
         </tr>';
 
-$result = mysql_query('SELECT * FROM Student') or die('Błąd w zapytaniu');
+$result = mysql_query('SELECT * FROM Student') or die(mysql_error());
 while ($row = mysql_fetch_array($result)) {
   echo "<tr>
           <td>$row[0]</td>
@@ -50,7 +50,7 @@ echo '<h1>Profesor</h1>
           <th>wykladany_przedmiot</th>
         </tr>';
 
-$result = mysql_query('SELECT * FROM Profesor') or die('Błąd w zapytaniu');
+$result = mysql_query('SELECT * FROM Profesor') or die(mysql_error());
 while ($row = mysql_fetch_array($result)) {
   echo "<tr>
           <td>$row[0]</td>
@@ -67,7 +67,7 @@ echo '<h1>Projekt</h1>
           <th>temat</th>
         </tr>';
 
-$result = mysql_query('SELECT * FROM Projekt') or die('Błąd w zapytaniu');
+$result = mysql_query('SELECT * FROM Projekt') or die(mysql_error());
 while ($row = mysql_fetch_array($result)) {
   echo "<tr>
           <td>$row[0]</td>
@@ -86,7 +86,7 @@ echo '<h1>Wykonany_projekt</h1>
           <th>ocena</th>
         </tr>';
 
-$result = mysql_query('SELECT * FROM Wykonany_projekt') or die('Błąd w zapytaniu');
+$result = mysql_query('SELECT * FROM Wykonany_projekt') or die(mysql_error());
 while ($row = mysql_fetch_array($result)) {
   echo "<tr>
           <td>$row[0]</td>
