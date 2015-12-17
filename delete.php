@@ -40,7 +40,7 @@ if (!empty($project_number)) {
 <?php
 
 if ($project_removed) {
-  echo "Wybrany temat projektu został usunięty.";
+  echo "<p>Wybrany temat projektu został usunięty.</p>";
 }
 
 ?>
