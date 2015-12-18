@@ -1,5 +1,45 @@
 <?php include('connection.php'); ?>
 
+<!-- USUWANIE STUDENTA -->
+<?php
+
+$id_student = trim($_POST['id_student']);
+
+if (!empty($id_student)) {
+  mysql_query("DELETE FROM Osoba WHERE id_osoby = $id_student") or die(mysql_error());
+}
+
+?>
+
+<h1>Usuń studenta</h1>
+<table border="1">
+  <tr>
+    <th>Imię i nazwisko</th>
+    <th>E-mail</th>
+    <th>Grupa</th>
+    <th>Opcje</th>
+  </tr>
+
+<?php
+
+$result = mysql_query('SELECT imie, nazwisko, email, grupa, id_osoby FROM Student NATURAL JOIN Osoba') or die(mysql_error());
+while ($row = mysql_fetch_array($result)) {
+  echo '<tr>
+          <td>'.$row[0].' '.$row[1].'</td>
+          <td>'.$row[2].'</td>
+          <td>'.$row[3].'</td>
+          <td>
+            <form action="" method="post">
+              <input type="hidden" name="id_student" value="'.$row[4].'">
+              <input type="submit" value="Usuń studenta">
+            </form>
+          </td>
+        </tr>';
+}
+?>
+
+</table>
+
 <!-- USUWANIE PROJEKTU -->
 <?php
 

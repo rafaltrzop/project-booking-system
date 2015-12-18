@@ -16,13 +16,23 @@ id_osoby INT PRIMARY KEY AUTO_INCREMENT,
 email VARCHAR(80),
 imie VARCHAR(30),
 nazwisko VARCHAR(30)
-);
+) ENGINE = INNODB;
+
+CREATE TABLE Wykonany_projekt
+(
+id_osoby_student INT PRIMARY KEY,
+id_osoby_profesor INT DEFAULT NULL,
+data_oddania DATE,
+ocena DECIMAL(2,1) DEFAULT NULL,
+FOREIGN KEY (id_osoby_student) REFERENCES Osoba(id_osoby) ON DELETE CASCADE
+) ENGINE = INNODB;
 
 CREATE TABLE Student
 (
 id_osoby INT PRIMARY KEY,
 grupa INT,
 nr_projektu INT DEFAULT NULL,
+FOREIGN KEY (id_osoby) REFERENCES Osoba(id_osoby) ON DELETE CASCADE,
 FOREIGN KEY (nr_projektu) REFERENCES Projekt(nr_projektu) ON DELETE SET NULL
 ) ENGINE = INNODB;
 
@@ -30,14 +40,6 @@ CREATE TABLE Profesor
 (
 id_osoby INT PRIMARY KEY,
 wykladany_przedmiot VARCHAR(50)
-);
-
-CREATE TABLE Wykonany_projekt
-(
-id_osoby_student INT PRIMARY KEY,
-id_osoby_profesor INT DEFAULT NULL,
-data_oddania DATE,
-ocena DECIMAL(2,1) DEFAULT NULL
 );
 
 ### Dodaj tematy projektów do bazy
@@ -78,6 +80,15 @@ INSERT INTO Osoba(email, imie, nazwisko) VALUES
 ('ksandersa@i2i.jp', 'Kevin', 'Sanders'),
 ('rstevensb@instagram.com', 'Russell', 'Stevens');
 
+### Dodaj wykonane projekty do bazy
+
+INSERT INTO Wykonany_projekt VALUES
+(1, 11, '2015-12-11', 4.5),
+(3, NULL, '2016-01-21', NULL),
+(4, 11, '2015-12-17', 2.0),
+(9, 12, '2015-12-01', 5.0),
+(2, 11, '2015-12-19', 3.5);
+
 ### Dodaj studentów do bazy
 
 INSERT INTO Student VALUES
@@ -97,12 +108,3 @@ INSERT INTO Student VALUES
 INSERT INTO Profesor VALUES
 (11, 'Bazy danych 2 (wykład)'),
 (12, 'Bazy danych 2 (ćwiczenia)');
-
-### Dodaj wykonane projekty do bazy
-
-INSERT INTO Wykonany_projekt VALUES
-(1, 11, '2015-12-11', 4.5),
-(3, NULL, '2016-01-21', NULL),
-(4, 11, '2015-12-17', 2.0),
-(9, 12, '2015-12-01', 5.0),
-(2, 11, '2015-12-19', 3.5);
