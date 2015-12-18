@@ -39,8 +39,9 @@ FOREIGN KEY (nr_projektu) REFERENCES Projekt(nr_projektu) ON DELETE SET NULL
 CREATE TABLE Profesor
 (
 id_osoby INT PRIMARY KEY,
-wykladany_przedmiot VARCHAR(50)
-);
+wykladany_przedmiot VARCHAR(50),
+FOREIGN KEY (id_osoby) REFERENCES Osoba(id_osoby) ON DELETE CASCADE
+) ENGINE = INNODB;
 
 ### Dodaj tematy projektów do bazy
 

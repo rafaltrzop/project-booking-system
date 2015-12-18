@@ -40,6 +40,46 @@ while ($row = mysql_fetch_array($result)) {
 
 </table>
 
+<!-- USUWANIE PROFESORA -->
+<?php
+
+$id_proffesor = trim($_POST['id_proffesor']);
+
+if (!empty($id_proffesor)) {
+  mysql_query("DELETE FROM Osoba WHERE id_osoby = $id_proffesor") or die(mysql_error());
+}
+
+?>
+
+<h1>Usuń profesora</h1>
+<table border="1">
+  <tr>
+    <th>Imię i nazwisko</th>
+    <th>E-mail</th>
+    <th>Wykładany przedmiot</th>
+    <th>Opcje</th>
+  </tr>
+
+<?php
+
+$result = mysql_query('SELECT imie, nazwisko, email, wykladany_przedmiot, id_osoby FROM Profesor NATURAL JOIN Osoba') or die(mysql_error());
+while ($row = mysql_fetch_array($result)) {
+  echo '<tr>
+          <td>'.$row[0].' '.$row[1].'</td>
+          <td>'.$row[2].'</td>
+          <td>'.$row[3].'</td>
+          <td>
+            <form action="" method="post">
+              <input type="hidden" name="id_proffesor" value="'.$row[4].'">
+              <input type="submit" value="Usuń profesora">
+            </form>
+          </td>
+        </tr>';
+}
+?>
+
+</table>
+
 <!-- USUWANIE PROJEKTU -->
 <?php
 
