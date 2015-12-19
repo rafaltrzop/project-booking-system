@@ -1,6 +1,6 @@
 ### Usuń stare tabele
 
-DROP TABLE IF EXISTS Osoba, Student, Profesor, Projekt, Wykonany_projekt;
+DROP TABLE IF EXISTS Profesor, Student, Wykonany_projekt, Osoba, Projekt;
 
 ### Utwórz nowe tabele
 
