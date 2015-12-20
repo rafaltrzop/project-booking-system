@@ -1,13 +1,13 @@
 {
-  "name": "foundation-sites-template",
-  "version": "1.0.0",
+  "name": "project-booking-system",
+  "version": "0.0.0",
   "authors": [
-    "ZURB <foundation@zurb.com>"
+    "Rafał Trzop"
   ],
-  "description": "Basic template for a new Foundation for Sites project.",
-  "main": "index.html",
+  "description": "Project booking system",
+  "main": "index.php",
   "license": "MIT",
-  "homepage": "http://foundation.zurb.com",
+  "homepage": "https://github.com/rafaltrzop/project-booking-system",
   "dependencies": {
     "foundation-sites": "~6.0.0",
     "motion-ui": "~1.1.0"
