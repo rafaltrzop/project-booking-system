@@ -2,6 +2,7 @@
 
 <div class="row">
   <div class="small-12 columns text-center absolute-center">
+    <span id="landing-page-logo" class="fa fa-graduation-cap"></span>
     <h1 id="landing-page-text">System&nbsp;rezerwacji tematów&nbsp;projektów</h1>
     <a href="#" class="large button btn-landing-page">Panel studenta</a>
     <a href="#" class="large button btn-landing-page">Panel profesora</a>
