@@ -1,8 +1,10 @@
 <?php include('partials/head.html'); ?>
 
 <div class="row">
-  <div class="large-12 columns">
-    <h1>System rezerwacji tematów projektów</h1>
+  <div class="small-12 columns text-center absolute-center">
+    <h1 id="landing-page-text">System&nbsp;rezerwacji tematów&nbsp;projektów</h1>
+    <a href="#" class="large button btn-landing-page">Panel studenta</a>
+    <a href="#" class="large button btn-landing-page">Panel profesora</a>
   </div>
 </div>
 

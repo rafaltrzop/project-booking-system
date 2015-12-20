@@ -1,3 +1,9 @@
+/*##############################################################################
+#                                                                              #
+#   ZURB Foundation                                                            #
+#                                                                              #
+##############################################################################*/
+
 @charset 'utf-8';
 
 @import 'settings';
@@ -42,3 +48,33 @@
 
 @include motion-ui-transitions;
 @include motion-ui-animations;
+
+/*##############################################################################
+#                                                                              #
+#   Fonts                                                                      #
+#                                                                              #
+##############################################################################*/
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans&subset=latin,latin-ext);
+
+/*##############################################################################
+#                                                                              #
+#   Styles                                                                     #
+#                                                                              #
+##############################################################################*/
+
+.absolute-center {
+  @include absolute-center;
+}
+
+.btn-landing-page {
+  @include button-style($white, $white, $button-color-alt);
+  margin-right: rem-calc(16);
+  &:hover {
+    box-shadow: 0 0 rem-calc(50) rgba(255, 255, 255, 0.3);
+  }
+}
+
+#landing-page-text {
+  margin-bottom: rem-calc(60);
+}
