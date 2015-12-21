@@ -76,24 +76,40 @@ $fa-font-path: '../node_modules/font-awesome/fonts';
   @include absolute-center;
 }
 
-.btn-landing-page {
-  @include button-style($white, $white, $button-color-alt);
-  margin-right: rem-calc(16);
-  &:hover {
-    box-shadow: 0 0 rem-calc(50) rgba(255, 255, 255, 0.3);
+#landing-page {
+  &-logo {
+    font-size: rem-calc(80);
+  }
+  &-text {
+    margin: rem-calc(24) auto rem-calc(30) auto;
   }
 }
 
-#landing-page {
-  &-text {
-    margin: rem-calc(48) auto rem-calc(60) auto;
-  }
-  &-logo {
-    font-size: rem-calc(160);
+.btn-landing-page {
+  @include button-style($white, $white, $button-color-alt);
+  display: block;
+  &:hover {
+    box-shadow: 0 0 rem-calc(50) rgba(255, 255, 255, 0.3);
   }
 }
 
 @include mui-series {
   #landing-page-text { @include mui-queue(2s, -.8s, fade); }
   .btn-landing-page { @include mui-queue(.8s, 0, fade); }
+}
+
+@include breakpoint(medium) {
+  #landing-page {
+    &-logo {
+      font-size: rem-calc(160);
+    }
+    &-text {
+      margin: rem-calc(48) auto rem-calc(60) auto;
+    }
+  }
+
+  .btn-landing-page {
+    margin-right: rem-calc(16);
+    display: inline;
+  }
 }
