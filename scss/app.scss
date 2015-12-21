@@ -77,7 +77,12 @@ $fa-font-path: '../node_modules/font-awesome/fonts';
 }
 
 #landing-page {
+  background-color: $primary-color;
+  h1 {
+    color: $white;
+  }
   &-logo {
+    color: $white;
     font-size: rem-calc(80);
   }
   &-text {
@@ -91,6 +96,14 @@ $fa-font-path: '../node_modules/font-awesome/fonts';
   &:hover {
     box-shadow: 0 0 rem-calc(50) rgba(255, 255, 255, 0.3);
   }
+}
+
+.menu-text {
+  color: $white;
+}
+
+#tutorial {
+  background-color: $light-gray;
 }
 
 @include mui-series {
