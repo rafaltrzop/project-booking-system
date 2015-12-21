@@ -76,7 +76,7 @@ $fa-font-path: '../node_modules/font-awesome/fonts';
   @include absolute-center;
 }
 
-#landing-page {
+.landing-page {
   background-color: $primary-color;
   h1 {
     color: $white;
@@ -107,12 +107,12 @@ $fa-font-path: '../node_modules/font-awesome/fonts';
 }
 
 @include mui-series {
-  #landing-page-text { @include mui-queue(2s, -.8s, fade); }
+  .landing-page-text { @include mui-queue(2s, -.8s, fade); }
   .btn-landing-page { @include mui-queue(.8s, 0, fade); }
 }
 
 @include breakpoint(medium) {
-  #landing-page {
+  .landing-page {
     &-logo {
       font-size: rem-calc(160);
     }

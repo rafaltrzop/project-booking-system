@@ -7,3 +7,4 @@
     <title>System rezerwacji tematów projektów</title>
     <link rel="stylesheet" href="/css/app.css">
   </head>
+  <body<?php if (!empty($body_class)) echo ' class="'.$body_class.'"' ?>>
