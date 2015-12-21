@@ -41,7 +41,7 @@ $group = trim($_POST['group']);
     <label>
       Grupa:<br>
       <select name="group" required>
-        <option <?php if (empty($group)) echo 'selected' ?> disabled>&mdash;</option>
+        <option value <?php if (empty($group)) echo 'selected' ?> disabled>&mdash;</option>
         <option value="1" <?php if ($group == 1) echo 'selected' ?>>1</option>
         <option value="2" <?php if ($group == 2) echo 'selected' ?>>2</option>
         <option value="3" <?php if ($group == 3) echo 'selected' ?>>3</option>
@@ -161,7 +161,7 @@ $project_number = trim($_POST['project_number']);
     <label>
       Wybierz swoje nazwisko:<br>
       <select name="id_student" required>
-        <option selected disabled>&mdash;</option>
+        <option value selected disabled>&mdash;</option>
         <?php
 
         $result = mysql_query("SELECT id_osoby, imie, nazwisko FROM Osoba NATURAL JOIN Student") or die(mysql_error());
@@ -219,7 +219,7 @@ $id_student = trim($_POST['id_student']);
   <label>
     Wybierz swoje nazwisko:<br>
     <select name="id_student" required>
-      <option selected disabled>&mdash;</option>
+      <option value selected disabled>&mdash;</option>
       <?php
 
       $result = mysql_query("SELECT id_osoby, imie, nazwisko FROM Osoba NATURAL JOIN Student WHERE nr_projektu IS NOT NULL") or die(mysql_error());

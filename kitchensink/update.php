@@ -42,7 +42,7 @@ if (!empty($mark) && !empty($id_student) && !empty($id_proffesor)) {
             <td>
               <form action="" method="post" id="rate_project">
                 <select name="id_proffesor" required>
-                  <option';
+                  <option value';
                   if (empty($id_proffesor)) echo ' selected';
                   echo ' disabled hidden>&mdash;</option>
 
@@ -57,7 +57,7 @@ if (!empty($mark) && !empty($id_student) && !empty($id_proffesor)) {
                 </select>
 
                 <select name="mark" required>
-                  <option selected disabled hidden>&mdash;</option>
+                  <option value selected disabled hidden>&mdash;</option>
                   <optgroup label="Ocena">
                     <option value="2.0">2.0</option>
                     <option value="2.5">2.5</option>
