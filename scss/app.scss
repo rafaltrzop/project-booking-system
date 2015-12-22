@@ -121,6 +121,11 @@ $fa-font-path: '../node_modules/font-awesome/fonts';
 //   padding-right: 0;
 // }
 
+.top-bar-left,
+.top-bar-right {
+  width: initial;
+}
+
 @include mui-series {
   .landing-page-text { @include mui-queue(2s, -.8s, fade); }
   .btn-landing-page { @include mui-queue(.8s, 0, fade); }
