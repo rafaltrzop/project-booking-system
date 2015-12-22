@@ -72,6 +72,11 @@ $fa-font-path: '../node_modules/font-awesome/fonts';
 #                                                                              #
 ##############################################################################*/
 
+.body-content-container {
+  padding-top: rem-calc(15); // ### check later
+  padding-bottom: rem-calc(15); // ### check later
+}
+
 .absolute-center {
   @include absolute-center;
 }
@@ -98,13 +103,23 @@ $fa-font-path: '../node_modules/font-awesome/fonts';
   }
 }
 
-.menu-text {
-  color: $white;
+.button.hollow {
+  transition: none;
+  // transition-duration: .16s; // ### maybe?
+  &:hover,
+  &:active,
+  &:focus {
+    border-color: $primary-color;
+    background-color: $primary-color;
+    color: $white;
+  }
 }
 
-#tutorial {
-  background-color: $light-gray;
-}
+// ### fine tune things on mobile later
+// .top-bar {
+//   padding-left: 0;
+//   padding-right: 0;
+// }
 
 @include mui-series {
   .landing-page-text { @include mui-queue(2s, -.8s, fade); }
@@ -112,6 +127,11 @@ $fa-font-path: '../node_modules/font-awesome/fonts';
 }
 
 @include breakpoint(medium) {
+  .body-content-container {
+    padding-top: rem-calc(60); // ### adjust later
+    padding-bottom: rem-calc(60); // ### adjust later
+  }
+
   .landing-page {
     &-logo {
       font-size: rem-calc(160);
