@@ -5,7 +5,7 @@ include('partials/head.php');
 
 ?>
 
-<div class="row">
+<section class="row">
   <div class="small-12 columns text-center absolute-center">
     <span class="landing-page-logo fa fa-graduation-cap"></span>
     <div class="is-animating">
@@ -14,6 +14,6 @@ include('partials/head.php');
       <a href="#" class="large button btn-landing-page">Panel profesora</a>
     </div>
   </div>
-</div>
+</section>
 
 <?php include('partials/scripts.html'); ?>
