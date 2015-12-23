@@ -2,7 +2,7 @@
 
 include($_SERVER['DOCUMENT_ROOT'].'/connection.php');
 include($_SERVER['DOCUMENT_ROOT'].'/partials/head.php');
-include($_SERVER['DOCUMENT_ROOT'].'/partials/header.html');
+include($_SERVER['DOCUMENT_ROOT'].'/partials/header_user.html');
 
 ?>
 
