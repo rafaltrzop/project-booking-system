@@ -72,8 +72,15 @@ $fa-font-path: '../node_modules/font-awesome/fonts';
 #                                                                              #
 ##############################################################################*/
 
+main h1 {
+  margin-top: rem-calc(15);
+  &:first-child {
+    margin-top: 0;
+  }
+}
+
 .body-content-container {
-  padding-top: rem-calc(15); // ### check later
+  padding-top: rem-calc(15);
   padding-bottom: rem-calc(15); // ### check later
 }
 
@@ -115,12 +122,6 @@ $fa-font-path: '../node_modules/font-awesome/fonts';
   }
 }
 
-// ### fine tune things on mobile later
-// .top-bar {
-//   padding-left: 0;
-//   padding-right: 0;
-// }
-
 .top-bar-left,
 .top-bar-right {
   width: initial;
@@ -132,11 +133,6 @@ $fa-font-path: '../node_modules/font-awesome/fonts';
 }
 
 @include breakpoint(medium) {
-  .body-content-container {
-    padding-top: rem-calc(60); // ### adjust later
-    padding-bottom: rem-calc(60); // ### adjust later
-  }
-
   .landing-page {
     &-logo {
       font-size: rem-calc(160);
@@ -149,5 +145,16 @@ $fa-font-path: '../node_modules/font-awesome/fonts';
   .btn-landing-page {
     margin-right: rem-calc(16);
     display: inline;
+  }
+}
+
+@include breakpoint(xlarge) {
+  main h1 {
+    margin-top: rem-calc(44);
+  }
+
+  .body-content-container {
+    padding-top: rem-calc(60);
+    padding-bottom: rem-calc(60); // ### adjust later
   }
 }
