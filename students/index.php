@@ -48,24 +48,24 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header.html');
             ?>
           </select>
         </label>
+
+        <?php
+
+        if (!empty($id_student) && !empty($project_number)) {
+          $result = mysql_query("SELECT * FROM Student WHERE id_osoby = $id_student AND nr_projektu IS NOT NULL") or die(mysql_error());
+          $reserved_already = mysql_num_rows($result);
+
+          if ($reserved_already) {
+            echo '<p><span class="fa fa-times fa-error"></span>&ensp;Zarezerwowałeś już swój temat projektu, nie możesz zrobić tego jeszcze raz.</p>';
+          } else {
+            mysql_query("UPDATE Student SET nr_projektu = $project_number WHERE id_osoby = $id_student") or die(mysql_error());
+            echo '<p><span class="fa fa-check fa-success"></span>&ensp;Wybrany projekt został przez Ciebie zarezerwowany.</p>';
+          }
+        }
+
+        ?>
         <button type="submit" class="hollow button">Zarezerwuj temat</button>
       </form>
-
-      <?php
-
-      if (!empty($id_student) && !empty($project_number)) {
-        $result = mysql_query("SELECT * FROM Student WHERE id_osoby = $id_student AND nr_projektu IS NOT NULL") or die(mysql_error());
-        $reserved_already = mysql_num_rows($result);
-
-        if ($reserved_already) {
-          echo '<p>Zarezerwowałeś już swój temat projektu, nie możesz zrobić tego jeszcze raz!</p>';
-        } else {
-          mysql_query("UPDATE Student SET nr_projektu = $project_number WHERE id_osoby = $id_student") or die(mysql_error());
-          echo "<p>Wybrany projekt został przez Ciebie zarezerwowany.</p>";
-        }
-      }
-
-      ?>
 
       <!-- ZGŁASZANIE WYKONANIA PROJEKTU -->
       <?php
@@ -90,25 +90,24 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header.html');
             ?>
           </select>
         </label>
+
+        <?php
+
+        if (!empty($id_student)) {
+          $result = mysql_query("SELECT * FROM Wykonany_projekt WHERE id_osoby_student = $id_student") or die(mysql_error());
+          $submitted_already = mysql_num_rows($result);
+
+          if ($submitted_already) {
+            echo '<p><span class="fa fa-times fa-error"></span>&ensp;Już zgłosiłeś swój projekt do oceny, nie możesz zrobić tego ponownie.</p>';
+          } else {
+            mysql_query("INSERT INTO Wykonany_projekt(id_osoby_student, data_oddania) VALUES($id_student, NOW())") or die(mysql_error());
+            echo '<p><span class="fa fa-check fa-success"></span>&ensp;Twój projekt został oznaczony jako wykonany i czeka w kolejce na ocenę.</p>';
+          }
+        }
+
+        ?>
         <button type="submit" class="hollow button">Zgłoś projekt do oceny</button>
       </form>
-
-      <?php
-
-      if (!empty($id_student)) {
-        $result = mysql_query("SELECT * FROM Wykonany_projekt WHERE id_osoby_student = $id_student") or die(mysql_error());
-        $submitted_already = mysql_num_rows($result);
-
-
-        if ($submitted_already) {
-          echo '<p>Zgłosiłeś już swój projekt do oceny, nie możesz zrobić tego jeszcze raz!</p>';
-        } else {
-          mysql_query("INSERT INTO Wykonany_projekt(id_osoby_student, data_oddania) VALUES($id_student, NOW())") or die(mysql_error());
-          echo '<p>Twój projekt został oznaczony jako wykonany i czeka w kolejce na ocenę.</p>';
-        }
-      }
-
-      ?>
     </div>
   </div>
 </main>
