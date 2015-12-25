@@ -52,53 +52,53 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         $result2 = mysql_query("SELECT id_osoby, imie, nazwisko FROM Osoba NATURAL JOIN Profesor") or die(mysql_error());
         while ($row1 = mysql_fetch_array($result1)) {
           echo '<tr>
-            <td class="text-center">'.$row1[0].'</td>
-            <td>'.$row1[1].' '.$row1[2].'</td>
-            <td>'.$row1[3].'</td>
-            <td>'.$row1[4].' '.$row1[5].'</td>
-            <td class="text-center">'.$row1[6].'</td>
-            <td>
-              <form action="" method="post">
-                <select name="id_proffesor" required>
-                  <option value="NULL"';
-                  if (empty($id_proffesor)) echo ' selected';
-                  echo '></option>
+                  <td class="text-center">'.$row1[0].'</td>
+                  <td>'.$row1[1].' '.$row1[2].'</td>
+                  <td>'.$row1[3].'</td>
+                  <td>'.$row1[4].' '.$row1[5].'</td>
+                  <td class="text-center">'.$row1[6].'</td>
+                  <td>
+                    <form action="" method="post">
+                      <select name="id_proffesor" required>
+                        <option value="NULL"';
+                        if (empty($id_proffesor)) echo ' selected';
+                        echo '></option>
 
-                  <optgroup label="Oceniający">';
-                    while ($row2 = mysql_fetch_array($result2)) {
-                      echo '<option value="'.$row2[0].'"';
-                      if ($id_proffesor == $row2[0]) echo ' selected';
-                      echo '>'.$row2[1].' '.$row2[2].'</option>';
-                    }
-                  echo '</optgroup>
-                </select>
+                        <optgroup label="Oceniający">';
+                          while ($row2 = mysql_fetch_array($result2)) {
+                            echo '<option value="'.$row2[0].'"';
+                            if ($id_proffesor == $row2[0]) echo ' selected';
+                            echo '>'.$row2[1].' '.$row2[2].'</option>';
+                          }
+                        echo '</optgroup>
+                      </select>
 
-                <select name="mark" required>
-                  <option value="NULL" selected></option>
-                  <optgroup label="Ocena">
-                    <option value="2.0">2.0</option>
-                    <option value="2.5">2.5</option>
-                    <option value="3.0">3.0</option>
-                    <option value="3.5">3.5</option>
-                    <option value="4.0">4.0</option>
-                    <option value="4.5">4.5</option>
-                    <option value="5.0">5.0</option>
-                  </optgroup>
-                </select>
+                      <select name="mark" required>
+                        <option value="NULL" selected></option>
+                        <optgroup label="Ocena">
+                          <option value="2.0">2.0</option>
+                          <option value="2.5">2.5</option>
+                          <option value="3.0">3.0</option>
+                          <option value="3.5">3.5</option>
+                          <option value="4.0">4.0</option>
+                          <option value="4.5">4.5</option>
+                          <option value="5.0">5.0</option>
+                        </optgroup>
+                      </select>
 
-                <input type="hidden" name="id_student" value="'.$row1[7].'">
-                <button type="submit" class="hollow button">Aktualizuj</button>';
-                if ($id_student == $row1[7]) {
-                  if ($project_data_updated) {
-                    echo '<p><span class="fa fa-check fa-success"></span>&ensp;Zaktualizowano dane.</p>';
-                  }
-                  if ($mark_without_id_proffesor) {
-                    echo '<p><span class="fa fa-times fa-error"></span>&ensp;Musisz wybrać oceniającego.</p>';
-                  }
-                }
-              echo '</form>
-            </td>
-          </tr>';
+                      <input type="hidden" name="id_student" value="'.$row1[7].'">
+                      <button type="submit" class="hollow button">Aktualizuj</button>';
+                      if ($id_student == $row1[7]) {
+                        if ($project_data_updated) {
+                          echo '<p><span class="fa fa-check fa-success"></span>&ensp;Zaktualizowano dane.</p>';
+                        }
+                        if ($mark_without_id_proffesor) {
+                          echo '<p><span class="fa fa-times fa-error"></span>&ensp;Musisz wybrać oceniającego.</p>';
+                        }
+                      }
+                    echo '</form>
+                  </td>
+                </tr>';
           mysql_data_seek($result2, 0);
         }
 
