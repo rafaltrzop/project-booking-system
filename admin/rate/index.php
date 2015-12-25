@@ -10,17 +10,25 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
   <div class="column row">
     <?php
 
+    $mark_without_id_proffesor = FALSE;
+    $project_data_updated = FALSE;
     $mark = trim($_POST['mark']);
     $id_proffesor = trim($_POST['id_proffesor']);
     $id_student = trim($_POST['id_student']);
 
     if (!empty($mark) && !empty($id_student) && !empty($id_proffesor)) {
-      mysql_query("UPDATE Wykonany_projekt SET ocena = $mark, id_osoby_profesor = $id_proffesor WHERE id_osoby_student = $id_student") or die(mysql_error());
+      if ($mark != 'NULL' && $id_proffesor == 'NULL') {
+        $mark_without_id_proffesor = TRUE;
+      } else {
+        mysql_query("UPDATE Wykonany_projekt SET ocena = $mark, id_osoby_profesor = $id_proffesor WHERE id_osoby_student = $id_student") or die(mysql_error());
+        $project_data_updated = TRUE;
+      }
     }
 
     ?>
 
     <h1>Oceń wykonane projekty</h1>
+    <p>Aby podzielić pracę oceniania między kilku profesorów wystarczy przypisać danemu projektowi oceniającego bez wybierania oceny.</p>
     <table border="1">
       <thead>
         <tr>
@@ -52,7 +60,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
             <td>
               <form action="" method="post">
                 <select name="id_proffesor" required>
-                  <option value';
+                  <option value="NULL"';
                   if (empty($id_proffesor)) echo ' selected';
                   echo '></option>
 
@@ -66,7 +74,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
                 </select>
 
                 <select name="mark" required>
-                  <option value selected></option>
+                  <option value="NULL" selected></option>
                   <optgroup label="Ocena">
                     <option value="2.0">2.0</option>
                     <option value="2.5">2.5</option>
@@ -79,8 +87,16 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
                 </select>
 
                 <input type="hidden" name="id_student" value="'.$row1[7].'">
-                <button type="submit" class="hollow button">Aktualizuj</button>
-              </form>
+                <button type="submit" class="hollow button">Aktualizuj</button>';
+                if ($id_student == $row1[7]) {
+                  if ($project_data_updated) {
+                    echo '<p><span class="fa fa-check fa-success"></span>&ensp;Zaktualizowano dane.</p>';
+                  }
+                  if ($mark_without_id_proffesor) {
+                    echo '<p><span class="fa fa-times fa-error"></span>&ensp;Musisz wybrać oceniającego.</p>';
+                  }
+                }
+              echo '</form>
             </td>
           </tr>';
           mysql_data_seek($result2, 0);
