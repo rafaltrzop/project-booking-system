@@ -70,7 +70,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
             <th>Imię i nazwisko</th>
             <th>E-mail</th>
             <th>Grupa</th>
-            <th>Opcje</th>
+            <th class="text-center">Opcje</th>
           </tr>
         </thead>
         <tbody>
@@ -112,7 +112,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
             <th>Imię i nazwisko</th>
             <th>E-mail</th>
             <th>Wykładany przedmiot</th>
-            <th>Opcje</th>
+            <th class="text-center">Opcje</th>
           </tr>
         </thead>
         <tbody>
