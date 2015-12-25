@@ -34,8 +34,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
             while ($row = mysql_fetch_array($result)) {
               echo '<li>
                       <label>
-                        <input type="radio" name="project_number" value="'.$row[0].'" required>
-                        '.$row[1].'
+                        <input type="radio" name="project_number" value="'.$row[0].'" required>&ensp;'.$row[1].'
                       </label>
                     </li>';
             }
