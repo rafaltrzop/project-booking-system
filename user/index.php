@@ -36,17 +36,20 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_user.html');
 
         <label>
           Wybierz temat:<br>
-          <select name="project_number" required>
-            <option value selected></option>
+          <ol>
             <?php
 
             $result = mysql_query('SELECT * FROM Projekt ORDER BY temat') or die(mysql_error());
             while ($row = mysql_fetch_array($result)) {
-              echo '<option value="'.$row[0].'">'.$row[1].'</option>';
+              echo '<li>
+                      <label>
+                        <input type="radio" name="project_number" value="'.$row[0].'" required>&ensp;'.$row[1].'
+                      </label>
+                    </li>';
             }
 
             ?>
-          </select>
+          </ol>
         </label>
 
         <?php
