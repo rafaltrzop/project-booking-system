@@ -82,7 +82,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
             echo '<tr>
                     <td>'.$row[0].' '.$row[1].'</td>
                     <td>'.$row[2].'</td>
-                    <td>'.$row[3].'</td>
+                    <td class="text-center">'.$row[3].'</td>
                     <td>
                       <form action="" method="post">
                         <input type="hidden" name="id_student" value="'.$row[4].'">
