@@ -56,10 +56,8 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       $email = trim($_POST['email']);
       $group = trim($_POST['group']);
 
-      if (!empty($first_name) && !empty($last_name) && !empty($email) && !empty($group)) {
+      if (!empty($id_student) && !empty($first_name) && !empty($last_name) && !empty($email) && !empty($group)) {
         mysql_query("UPDATE Osoba SET email = '$email', imie = '$first_name', nazwisko = '$last_name' WHERE id_osoby = $id_student") or die(mysql_error());
-
-        $id_osoby = mysql_insert_id();
         mysql_query("UPDATE Student SET grupa = $group WHERE id_osoby = $id_student") or die(mysql_error());
 
         echo '<p><span class="fa fa-check fa-success"></span>&ensp;Zaktualizowano dane studenta: '.$first_name.' '.$last_name.'.</p>';
@@ -86,6 +84,51 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
                     <td class="text-center">'.$row[3].'</td>
                     <td>
                       <a href="/admin/edit/student.php?id='.$row[4].'" class="hollow button">Edytuj studenta</a>
+                    </td>
+                  </tr>';
+          }
+          ?>
+        </tbody>
+      </table>
+
+      <!-- EDYCJA PROFESORA -->
+      <h1>Edytuj profesora</h1>
+      <?php
+
+      $id_proffesor = trim($_POST['id_proffesor']);
+      $first_name = trim($_POST['first_name']);
+      $last_name = trim($_POST['last_name']);
+      $email = trim($_POST['email']);
+      $school_subject = trim($_POST['school_subject']);
+
+      if (!empty($id_proffesor) && !empty($first_name) && !empty($last_name) && !empty($email) && !empty($school_subject)) {
+        mysql_query("UPDATE Osoba SET email = '$email', imie = '$first_name', nazwisko = '$last_name' WHERE id_osoby = $id_proffesor") or die(mysql_error());
+        mysql_query("UPDATE Profesor SET wykladany_przedmiot = '$school_subject' WHERE id_osoby = $id_proffesor") or die(mysql_error());
+
+        echo '<p><span class="fa fa-check fa-success"></span>&ensp;Zaktualizowano dane profesora: '.$first_name.' '.$last_name.'.</p>';
+      }
+
+      ?>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Imię i nazwisko</th>
+            <th>E-mail</th>
+            <th>Wykładany przedmiot</th>
+            <th class="text-center">Opcje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+
+          $result = mysql_query('SELECT imie, nazwisko, email, wykladany_przedmiot, id_osoby FROM Profesor NATURAL JOIN Osoba ORDER BY imie, nazwisko') or die(mysql_error());
+          while ($row = mysql_fetch_array($result)) {
+            echo '<tr>
+                    <td>'.$row[0].' '.$row[1].'</td>
+                    <td>'.$row[2].'</td>
+                    <td>'.$row[3].'</td>
+                    <td>
+                      <a href="/admin/edit/professor.php?id='.$row[4].'" class="hollow button">Edytuj profesora</a>
                     </td>
                   </tr>';
           }
