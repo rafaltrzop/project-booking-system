@@ -1,48 +1,44 @@
-# Foundation for Sites Template
+# Project booking system
 
-**Please open all issues with this template on the main [Foundation for Sites](https://github.com/zurb/foundation-sites/issues) repo.**
+## Set up
 
-This is the basic starter project for [Foundation for Sites 6](http://foundation.zurb.com/sites). It includes a Sass compiler and a starter HTML file for you.
+1. Clone repository and install the needed dependencies:
 
-## Installation
+  ```
+  $ cd project-booking-system
+  $ npm install
+  $ bower install
+  ```
 
-To use this template, your computer needs:
+2. Create MySQL database:
 
-- [NodeJS](https://nodejs.org/en/) (0.10 or greater)
-- [Git](https://git-scm.com/)
+  ```
+  $ mysql -u USERNAME -pPASSWORD
 
-This template can be installed with the Foundation CLI, or downloaded and set up manually.
+  mysql> CREATE DATABASE db_name
+      -> DEFAULT CHARACTER SET utf8
+      -> DEFAULT COLLATE utf8_general_ci;
+  ```
 
-### Using the CLI
+3. Create tables:
 
-Install the Foundation CLI with this command:
+  ```
+  $ mysql DB_NAME -u USERNAME -pPASSWORD < database_tables.sql
+  ```
 
-```bash
-npm install foundation-cli --global
-```
+4. Optionally import sample data:
 
-Use this command to set up a blank Foundation for Sites project with this template:
+  ```
+  $ mysql DB_NAME -u USERNAME -pPASSWORD < database_data.sql
+  ```
 
-```bash
-foundation new --framework sites --template basic
-```
+5. Create your connection file and update credentials:
 
-The CLI will prompt you to give your project a name. The template will be downloaded into a folder with this name.
+  ```
+  $ cp connection.php.example connection.php
+  $ vim connection.php
+  ```
 
-### Manual Setup
+## Development
 
-To manually set up the template, first download it with Git:
-
-```bash
-git clone https://github.com/zurb/foundation-sites-template projectname
-```
-
-Then open the folder in your command line, and install the needed dependencies:
-
-```bash
-cd projectname
-npm install
-bower install
-```
-
-Finally, run `npm start` to run the Sass compiler. It will re-run every time you save a Sass file.
+Run `npm start` to run the Sass compiler. It will re-run every time you save a Sass file. Happy coding!
