@@ -91,7 +91,7 @@ table {
 
 .body-content-container {
   padding-top: rem-calc(15);
-  padding-bottom: rem-calc(15); // ### check later
+  padding-bottom: rem-calc(15);
 }
 
 .absolute-center {
@@ -122,7 +122,6 @@ table {
 
 .button.hollow {
   transition: none;
-  // transition-duration: .16s; // ### maybe?
   &:hover,
   &:active,
   &:focus {
@@ -173,6 +172,6 @@ table {
 
   .body-content-container {
     padding-top: rem-calc(60);
-    padding-bottom: rem-calc(60); // ### adjust later
+    padding-bottom: rem-calc(60);
   }
 }
