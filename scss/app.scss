@@ -86,6 +86,10 @@ select:focus {
   transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
 }
 
+ol {
+  list-style-type: none;
+}
+
 table {
   & select {
     width: initial;
