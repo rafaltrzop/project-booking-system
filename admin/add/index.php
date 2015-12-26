@@ -13,7 +13,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       <h1>Dodaj nowy temat projektu</h1>
       <form action="" method="post">
         <label>
-          Temat projektu:<br>
+          Temat projektu:
           <input type="text" name="project_name" required>
         </label>
         <?php
@@ -42,22 +42,22 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       <h1>Dodaj nowego studenta</h1>
       <form action="" method="post">
         <label>
-          Imię:<br>
+          Imię:
           <input type="text" name="first_name" required>
         </label>
 
         <label>
-          Nazwisko:<br>
+          Nazwisko:
           <input type="text" name="last_name" required>
         </label>
 
         <label>
-          E-mail:<br>
+          E-mail:
           <input type="email" name="email" required>
         </label>
 
         <label>
-          Grupa:<br>
+          Grupa:
           <select name="group" required>
             <option value selected></option>
             <option value="1">1</option>
@@ -94,22 +94,22 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       <h1>Dodaj nowego profesora</h1>
       <form action="" method="post">
         <label>
-          Imię:<br>
+          Imię:
           <input type="text" name="first_name2" required>
         </label>
 
         <label>
-          Nazwisko:<br>
+          Nazwisko:
           <input type="text" name="last_name2" required>
         </label>
 
         <label>
-          E-mail:<br>
+          E-mail:
           <input type="email" name="email2" required>
         </label>
 
         <label>
-          Wykładany przedmiot:<br>
+          Wykładany przedmiot:
           <input type="text" name="school_subject" required>
         </label>
 

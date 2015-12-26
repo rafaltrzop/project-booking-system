@@ -20,7 +20,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_user.html');
       <h1>Zarezerwuj temat projektu</h1>
       <form action="" method="post">
         <label>
-          Wybierz swoje nazwisko:<br>
+          Wybierz swoje nazwisko:
           <select name="id_student" required>
             <option value selected></option>
             <?php
@@ -35,7 +35,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_user.html');
         </label>
 
         <label>
-          Wybierz temat:<br>
+          Wybierz temat:
           <ol>
             <?php
 
@@ -80,7 +80,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_user.html');
       <h1>Zgłoś wykonanie projektu</h1>
       <form action="" method="post" onsubmit="return confirm('Czy aby na pewno chcesz zgłosić swój projekt do oceny?');">
         <label>
-          Wybierz swoje nazwisko:<br>
+          Wybierz swoje nazwisko:
           <select name="id_student2" required>
             <option value selected></option>
             <?php
