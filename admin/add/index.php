@@ -84,9 +84,9 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       <!-- DODAWANIE PROFESORA -->
       <?php
 
-      $first_name = trim($_POST['first_name2']);
-      $last_name = trim($_POST['last_name2']);
-      $email = trim($_POST['email2']);
+      $first_name = trim($_POST['first_name']);
+      $last_name = trim($_POST['last_name']);
+      $email = trim($_POST['email']);
       $school_subject = trim($_POST['school_subject']);
 
       ?>
@@ -95,17 +95,17 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       <form action="" method="post">
         <label>
           Imię:
-          <input type="text" name="first_name2" required>
+          <input type="text" name="first_name" required>
         </label>
 
         <label>
           Nazwisko:
-          <input type="text" name="last_name2" required>
+          <input type="text" name="last_name" required>
         </label>
 
         <label>
           E-mail:
-          <input type="email" name="email2" required>
+          <input type="email" name="email" required>
         </label>
 
         <label>
