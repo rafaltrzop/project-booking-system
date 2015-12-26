@@ -10,9 +10,9 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
   <div class="column row">
     <?php
 
-    $id_proffesor = (int) trim($_GET['id']);
+    $id_professor = (int) trim($_GET['id']);
 
-    $result = mysql_query("SELECT imie, nazwisko, email, wykladany_przedmiot FROM Osoba NATURAL JOIN Profesor WHERE id_osoby = $id_proffesor") or die(mysql_error());
+    $result = mysql_query("SELECT imie, nazwisko, email, wykladany_przedmiot FROM Osoba NATURAL JOIN Profesor WHERE id_osoby = $id_professor") or die(mysql_error());
     $row = mysql_fetch_array($result);
 
     ?>
@@ -38,7 +38,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         <input type="text" name="school_subject" value="<?= $row[3] ?>" required>
       </label>
 
-      <input type="hidden" name="id_proffesor" value="<?= $id_proffesor ?>" required>
+      <input type="hidden" name="id_professor" value="<?= $id_professor ?>" required>
 
       <button type="submit" class="hollow button">Zapisz zmiany</button>
       <button type="button" class="hollow button" onclick="history.back();">Anuluj</button>

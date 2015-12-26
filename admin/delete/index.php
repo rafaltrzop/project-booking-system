@@ -90,11 +90,11 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       <h1 id="Usun_profesora">Usuń profesora</h1>
       <?php
 
-      $id_proffesor = trim($_POST['id_proffesor']);
+      $id_professor = trim($_POST['id_professor']);
 
-      if (!empty($id_proffesor)) {
-        mysql_query("DELETE FROM Osoba WHERE id_osoby = $id_proffesor") or die(mysql_error());
-        echo '<p><span class="fa fa-check fa-success"></span>&ensp;Wybrany profesor został usunięty (ID'.$id_proffesor.').</p>';
+      if (!empty($id_professor)) {
+        mysql_query("DELETE FROM Osoba WHERE id_osoby = $id_professor") or die(mysql_error());
+        echo '<p><span class="fa fa-check fa-success"></span>&ensp;Wybrany profesor został usunięty (ID'.$id_professor.').</p>';
       }
 
       ?>
@@ -118,7 +118,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
                     <td>'.$row[3].'</td>
                     <td>
                       <form action="/admin/delete/index.php#Usun_profesora" method="post">
-                        <input type="hidden" name="id_proffesor" value="'.$row[4].'">
+                        <input type="hidden" name="id_professor" value="'.$row[4].'">
                         <button type="submit" class="hollow button">Usuń profesora</button>
                       </form>
                     </td>
