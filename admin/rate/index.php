@@ -27,12 +27,12 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
 
     ?>
 
-    <h1>Oceń wykonane projekty</h1>
+    <h1 id="Ocen_wykonane_projekty">Oceń wykonane projekty</h1>
     <p>Aby podzielić pracę oceniania między kilku profesorów wystarczy przypisać danemu projektowi oceniającego bez wybierania oceny.</p>
     <table border="1">
       <thead>
         <tr>
-          <th>Data oddania</th>
+          <th>Data</th>
           <th>Autor</th>
           <th>Temat projektu</th>
           <th>Oceniający</th>
@@ -52,13 +52,13 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         $result2 = mysql_query("SELECT id_osoby, imie, nazwisko FROM Osoba NATURAL JOIN Profesor") or die(mysql_error());
         while ($row1 = mysql_fetch_array($result1)) {
           echo '<tr>
-                  <td class="text-center">'.$row1[0].'</td>
+                  <td>'.$row1[0].'</td>
                   <td>'.$row1[1].' '.$row1[2].'</td>
                   <td>'.$row1[3].'</td>
                   <td>'.$row1[4].' '.$row1[5].'</td>
                   <td class="text-center">'.$row1[6].'</td>
                   <td>
-                    <form action="" method="post">
+                    <form action="/admin/rate/index.php#Ocen_wykonane_projekty" method="post">
                       <select name="id_proffesor" required>
                         <option value="NULL"';
                         if (empty($id_proffesor)) echo ' selected';
@@ -87,7 +87,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
                       </select>
 
                       <input type="hidden" name="id_student" value="'.$row1[7].'">
-                      <button type="submit" class="hollow button">Aktualizuj</button>';
+                      <button type="submit" class="hollow button">OK</button>';
                       if ($id_student == $row1[7]) {
                         if ($project_data_updated) {
                           echo '<p><span class="fa fa-check fa-success"></span>&ensp;Zaktualizowano dane.</p>';

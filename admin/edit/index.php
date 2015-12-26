@@ -10,7 +10,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
   <div class="row">
     <div class="small-12 columns">
       <!-- EDYCJA TEMATU PROJEKTU -->
-      <h1>Edytuj temat projektu</h1>
+      <h1 id="Edytuj_temat_projektu">Edytuj temat projektu</h1>
       <?php
 
       $project_number = trim($_POST['project_number']);
@@ -47,7 +47,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       </table>
 
       <!-- EDYCJA STUDENTA -->
-      <h1>Edytuj studenta</h1>
+      <h1 id="Edytuj_studenta">Edytuj studenta</h1>
       <?php
 
       $id_student = trim($_POST['id_student']);
@@ -92,7 +92,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       </table>
 
       <!-- EDYCJA PROFESORA -->
-      <h1>Edytuj profesora</h1>
+      <h1 id="Edytuj_profesora">Edytuj profesora</h1>
       <?php
 
       $id_proffesor = trim($_POST['id_proffesor']);

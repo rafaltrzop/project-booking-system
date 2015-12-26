@@ -17,7 +17,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
 
     ?>
     <h1>Edycja studenta</h1>
-    <form action="/admin/edit/index.php" method="post">
+    <form action="/admin/edit/index.php#Edytuj_studenta" method="post">
       <label>
         Imię:
         <input type="text" name="first_name" value="<?= $row[0] ?>" required>

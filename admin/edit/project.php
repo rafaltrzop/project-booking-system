@@ -17,7 +17,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
 
     ?>
     <h1>Edycja tematu projektu</h1>
-    <form action="/admin/edit/index.php" method="post">
+    <form action="/admin/edit/index.php#Edytuj_temat_projektu" method="post">
       <label>
         Temat projektu:
         <input type="hidden" name="project_number" value="<?= $project_number ?>" required>

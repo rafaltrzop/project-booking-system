@@ -24,8 +24,8 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
 
       ?>
 
-      <h1>Usuń temat projektu</h1>
-      <form action="" method="post">
+      <h1 id="Usun_temat_projektu">Usuń temat projektu</h1>
+      <form action="/admin/delete/index.php#Usun_temat_projektu" method="post">
         <label>
           <ol>
             <?php
@@ -63,7 +63,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
 
       ?>
 
-      <h1>Usuń studenta</h1>
+      <h1 id="Usun_studenta">Usuń studenta</h1>
       <table border="1">
         <thead>
           <tr>
@@ -83,7 +83,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
                     <td>'.$row[2].'</td>
                     <td class="text-center">'.$row[3].'</td>
                     <td>
-                      <form action="" method="post">
+                      <form action="/admin/delete/index.php#Usun_studenta" method="post">
                         <input type="hidden" name="id_student" value="'.$row[4].'">
                         <button type="submit" class="hollow button">Usuń studenta</button>
                       </form>
@@ -105,7 +105,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
 
       ?>
 
-      <h1>Usuń profesora</h1>
+      <h1 id="Usun_profesora">Usuń profesora</h1>
       <table border="1">
         <thead>
           <tr>
@@ -125,7 +125,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
                     <td>'.$row[2].'</td>
                     <td>'.$row[3].'</td>
                     <td>
-                      <form action="" method="post">
+                      <form action="/admin/delete/index.php#Usun_profesora" method="post">
                         <input type="hidden" name="id_proffesor" value="'.$row[4].'">
                         <button type="submit" class="hollow button">Usuń profesora</button>
                       </form>

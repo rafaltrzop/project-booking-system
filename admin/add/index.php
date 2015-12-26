@@ -10,8 +10,8 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
   <div class="row">
     <div class="small-12 columns">
       <!-- DODAWANIE PROJEKTU -->
-      <h1>Dodaj nowy temat projektu</h1>
-      <form action="" method="post">
+      <h1 id="Dodaj_nowy_temat_projektu">Dodaj nowy temat projektu</h1>
+      <form action="/admin/add/index.php#Dodaj_nowy_temat_projektu" method="post">
         <label>
           Temat projektu:
           <input type="text" name="project_name" required>
@@ -39,8 +39,8 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
 
       ?>
 
-      <h1>Dodaj nowego studenta</h1>
-      <form action="" method="post">
+      <h1 id="Dodaj_nowego_studenta">Dodaj nowego studenta</h1>
+      <form action="/admin/add/index.php#Dodaj_nowego_studenta" method="post">
         <label>
           Imię:
           <input type="text" name="first_name" required>
@@ -91,8 +91,8 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
 
       ?>
 
-      <h1>Dodaj nowego profesora</h1>
-      <form action="" method="post">
+      <h1 id="Dodaj_nowego_profesora">Dodaj nowego profesora</h1>
+      <form action="/admin/add/index.php#Dodaj_nowego_profesora" method="post">
         <label>
           Imię:
           <input type="text" name="first_name" required>
