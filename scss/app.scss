@@ -79,6 +79,13 @@ main h1 {
   }
 }
 
+select:focus {
+  border: 1px solid $dark-gray;
+  box-shadow: 0 0 5px $medium-gray;
+  outline: none;
+  transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
+}
+
 table {
   & select {
     width: initial;
