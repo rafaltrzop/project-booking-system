@@ -9,6 +9,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
 <main class="body-content-container">
   <div class="row">
     <div class="small-12 columns">
+      <!-- EDYCJA TEMATU PROJEKTU -->
       <h1>Edytuj temat projektu</h1>
       <?php
 
@@ -41,6 +42,53 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
                   </tr>';
           }
 
+          ?>
+        </tbody>
+      </table>
+
+      <!-- EDYCJA STUDENTA -->
+      <h1>Edytuj studenta</h1>
+      <?php
+
+      $id_student = trim($_POST['id_student']);
+      $first_name = trim($_POST['first_name']);
+      $last_name = trim($_POST['last_name']);
+      $email = trim($_POST['email']);
+      $group = trim($_POST['group']);
+
+      if (!empty($first_name) && !empty($last_name) && !empty($email) && !empty($group)) {
+        mysql_query("UPDATE Osoba SET email = '$email', imie = '$first_name', nazwisko = '$last_name' WHERE id_osoby = $id_student") or die(mysql_error());
+
+        $id_osoby = mysql_insert_id();
+        mysql_query("UPDATE Student SET grupa = $group WHERE id_osoby = $id_student") or die(mysql_error());
+
+        echo '<p><span class="fa fa-check fa-success"></span>&ensp;Zaktualizowano dane studenta: '.$first_name.' '.$last_name.'.</p>';
+      }
+
+      ?>
+      <table border="1">
+        <thead>
+          <tr>
+            <th>Imię i nazwisko</th>
+            <th>E-mail</th>
+            <th>Grupa</th>
+            <th class="text-center">Opcje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php
+
+          $result = mysql_query('SELECT imie, nazwisko, email, grupa, id_osoby FROM Student NATURAL JOIN Osoba ORDER BY imie, nazwisko') or die(mysql_error());
+          while ($row = mysql_fetch_array($result)) {
+            echo '<tr>
+                    <td>'.$row[0].' '.$row[1].'</td>
+                    <td>'.$row[2].'</td>
+                    <td class="text-center">'.$row[3].'</td>
+                    <td>
+                      <a href="/admin/edit/student.php?id='.$row[4].'" class="hollow button">Edytuj studenta</a>
+                    </td>
+                  </tr>';
+          }
           ?>
         </tbody>
       </table>
