@@ -57,8 +57,10 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       $group = trim($_POST['group']);
 
       if (!empty($id_student) && !empty($first_name) && !empty($last_name) && !empty($email) && !empty($group)) {
+        mysql_query('BEGIN') or die(mysql_error());
         mysql_query("UPDATE Osoba SET email = '$email', imie = '$first_name', nazwisko = '$last_name' WHERE id_osoby = $id_student") or die(mysql_error());
         mysql_query("UPDATE Student SET grupa = $group WHERE id_osoby = $id_student") or die(mysql_error());
+        mysql_query('COMMIT') or die(mysql_error());
 
         echo '<p><span class="fa fa-check fa-success"></span>&ensp;Zaktualizowano dane studenta: '.$first_name.' '.$last_name.'.</p>';
       }
@@ -102,8 +104,10 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       $school_subject = trim($_POST['school_subject']);
 
       if (!empty($id_professor) && !empty($first_name) && !empty($last_name) && !empty($email) && !empty($school_subject)) {
+        mysql_query('BEGIN') or die(mysql_error());
         mysql_query("UPDATE Osoba SET email = '$email', imie = '$first_name', nazwisko = '$last_name' WHERE id_osoby = $id_professor") or die(mysql_error());
         mysql_query("UPDATE Profesor SET wykladany_przedmiot = '$school_subject' WHERE id_osoby = $id_professor") or die(mysql_error());
+        mysql_query('COMMIT') or die(mysql_error());
 
         echo '<p><span class="fa fa-check fa-success"></span>&ensp;Zaktualizowano dane profesora: '.$first_name.' '.$last_name.'.</p>';
       }
