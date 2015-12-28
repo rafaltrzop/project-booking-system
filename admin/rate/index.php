@@ -29,7 +29,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
 
     <h1 id="Ocen_wykonane_projekty">Oceń wykonane projekty</h1>
     <p>Aby podzielić pracę oceniania między kilku profesorów wystarczy przypisać danemu projektowi oceniającego bez wybierania oceny.</p>
-    <table border="1">
+    <table>
       <thead>
         <tr>
           <th>Data</th>

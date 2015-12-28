@@ -22,7 +22,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       }
 
       ?>
-      <table border="1">
+      <table>
         <thead>
           <tr>
             <th>Temat projektu</th>
@@ -66,7 +66,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       }
 
       ?>
-      <table border="1">
+      <table>
         <thead>
           <tr>
             <th>Imię i nazwisko</th>
@@ -113,7 +113,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       }
 
       ?>
-      <table border="1">
+      <table>
         <thead>
           <tr>
             <th>Imię i nazwisko</th>

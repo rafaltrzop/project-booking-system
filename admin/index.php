@@ -10,7 +10,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
   <div class="row">
     <div class="small-12 columns">
       <h1>Tabela Osoba</h1>
-      <table border="1">
+      <table>
         <thead>
           <tr>
             <th>id_osoby</th>
@@ -37,7 +37,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       </table>
 
       <h1>Tabela Student</h1>
-      <table border="1">
+      <table>
         <thead>
           <tr>
             <th>id_osoby</th>
@@ -62,7 +62,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       </table>
 
       <h1>Tabela Profesor</h1>
-      <table border="1">
+      <table>
         <thead>
           <tr>
             <th>id_osoby</th>
@@ -85,7 +85,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       </table>
 
       <h1>Tabela Projekt</h1>
-      <table border="1">
+      <table>
         <thead>
           <tr>
             <th>nr_projektu</th>
@@ -108,7 +108,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       </table>
 
       <h1>Tabela Wykonany_projekt</h1>
-      <table border="1">
+      <table>
         <thead>
           <tr>
             <th>id_osoby_student</th>
