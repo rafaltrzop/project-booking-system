@@ -22,8 +22,8 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         <tbody>
           <?php
 
-          $result = mysql_query('SELECT * FROM Osoba') or die(mysql_error());
-          while ($row = mysql_fetch_array($result)) {
+          $result = mysqli_query($link, 'SELECT * FROM Osoba') or die(mysqli_error($link));
+          while ($row = mysqli_fetch_array($result)) {
             echo "<tr>
                     <td>$row[0]</td>
                     <td>$row[1]</td>
@@ -48,8 +48,8 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         <tbody>
           <?php
 
-          $result = mysql_query('SELECT * FROM Student') or die(mysql_error());
-          while ($row = mysql_fetch_array($result)) {
+          $result = mysqli_query($link, 'SELECT * FROM Student') or die(mysqli_error($link));
+          while ($row = mysqli_fetch_array($result)) {
             echo "<tr>
                     <td>$row[0]</td>
                     <td>$row[1]</td>
@@ -72,8 +72,8 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         <tbody>
           <?php
 
-          $result = mysql_query('SELECT * FROM Profesor') or die(mysql_error());
-          while ($row = mysql_fetch_array($result)) {
+          $result = mysqli_query($link, 'SELECT * FROM Profesor') or die(mysqli_error($link));
+          while ($row = mysqli_fetch_array($result)) {
             echo "<tr>
                     <td>$row[0]</td>
                     <td>$row[1]</td>
@@ -95,8 +95,8 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         <tbody>
           <?php
 
-          $result = mysql_query('SELECT * FROM Projekt') or die(mysql_error());
-          while ($row = mysql_fetch_array($result)) {
+          $result = mysqli_query($link, 'SELECT * FROM Projekt') or die(mysqli_error($link));
+          while ($row = mysqli_fetch_array($result)) {
             echo "<tr>
                     <td>$row[0]</td>
                     <td>$row[1]</td>
@@ -120,8 +120,8 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         <tbody>
           <?php
 
-          $result = mysql_query('SELECT * FROM Wykonany_projekt') or die(mysql_error());
-          while ($row = mysql_fetch_array($result)) {
+          $result = mysqli_query($link, 'SELECT * FROM Wykonany_projekt') or die(mysqli_error($link));
+          while ($row = mysqli_fetch_array($result)) {
             echo "<tr>
                     <td>$row[0]</td>
                     <td>$row[1]</td>

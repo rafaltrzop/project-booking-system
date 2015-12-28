@@ -20,7 +20,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       if ($mark != 'NULL' && $id_proffesor == 'NULL') {
         $mark_without_id_proffesor = TRUE;
       } else {
-        mysql_query("UPDATE Wykonany_projekt SET ocena = $mark, id_osoby_profesor = $id_proffesor WHERE id_osoby_student = $id_student") or die(mysql_error());
+        mysqli_query($link, "UPDATE Wykonany_projekt SET ocena = $mark, id_osoby_profesor = $id_proffesor WHERE id_osoby_student = $id_student") or die(mysqli_error($link));
         $project_data_updated = TRUE;
       }
     }
@@ -43,14 +43,14 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       <tbody>
         <?php
 
-        $result1 = mysql_query("SELECT wp.data_oddania, os.imie, os.nazwisko, p.temat, op.imie, op.nazwisko, wp.ocena, wp.id_osoby_student
+        $result1 = mysqli_query($link, "SELECT wp.data_oddania, os.imie, os.nazwisko, p.temat, op.imie, op.nazwisko, wp.ocena, wp.id_osoby_student
                                 FROM Wykonany_projekt wp LEFT JOIN Student s ON wp.id_osoby_student = s.id_osoby
                                 LEFT JOIN Osoba os ON s.id_osoby = os.id_osoby
                                 LEFT JOIN Projekt p ON s.nr_projektu = p.nr_projektu
                                 LEFT JOIN Osoba op ON wp.id_osoby_profesor = op.id_osoby
-                                ORDER BY data_oddania DESC") or die(mysql_error());
-        $result2 = mysql_query("SELECT id_osoby, imie, nazwisko FROM Osoba NATURAL JOIN Profesor") or die(mysql_error());
-        while ($row1 = mysql_fetch_array($result1)) {
+                                ORDER BY data_oddania DESC") or die(mysqli_error($link));
+        $result2 = mysqli_query($link, "SELECT id_osoby, imie, nazwisko FROM Osoba NATURAL JOIN Profesor") or die(mysqli_error($link));
+        while ($row1 = mysqli_fetch_array($result1)) {
           echo '<tr>
                   <td>'.$row1[0].'</td>
                   <td>'.$row1[1].' '.$row1[2].'</td>
@@ -65,7 +65,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
                         echo '></option>
 
                         <optgroup label="Oceniający">';
-                          while ($row2 = mysql_fetch_array($result2)) {
+                          while ($row2 = mysqli_fetch_array($result2)) {
                             echo '<option value="'.$row2[0].'"';
                             if ($id_proffesor == $row2[0]) echo ' selected';
                             echo '>'.$row2[1].' '.$row2[2].'</option>';
@@ -99,7 +99,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
                     echo '</form>
                   </td>
                 </tr>';
-          mysql_data_seek($result2, 0);
+          mysqli_data_seek($result2, 0);
         }
 
         ?>

@@ -4,22 +4,22 @@
 $url = getenv('JAWSDB_URL');
 $dbparts = parse_url($url);
 
-$dbhost = $dbparts['host'];
-$dbuser = $dbparts['user'];
-$dbpass = $dbparts['pass'];
-$dbname = ltrim($dbparts['path'],'/');
+$hostname = $dbparts['host'];
+$username = $dbparts['user'];
+$password = $dbparts['pass'];
+$database = ltrim($dbparts['path'],'/');
 
 # Set up a connection
-$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+$link = mysqli_connect($hostname, $username, $password, $database);
 
-if (!$conn) {
-  die(mysql_error());
+if (!$link) {
+  echo 'Error: Unable to connect to MySQL.' . PHP_EOL;
+  echo 'Debugging errno: '. mysqli_connect_errno() . PHP_EOL;
+  echo 'Debugging error: ' . mysqli_connect_error() . PHP_EOL;
+  exit;
 }
 
 # Set charset
-mysql_set_charset('utf8');
-
-# Select database
-mysql_select_db($dbname);
+mysqli_set_charset($link, 'utf8');
 
 ?>

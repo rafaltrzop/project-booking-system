@@ -12,8 +12,8 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
 
     $id_student = (int) trim($_GET['id']);
 
-    $result = mysql_query("SELECT imie, nazwisko, email, grupa FROM Osoba NATURAL JOIN Student WHERE id_osoby = $id_student") or die(mysql_error());
-    $row = mysql_fetch_array($result);
+    $result = mysqli_query($link, "SELECT imie, nazwisko, email, grupa FROM Osoba NATURAL JOIN Student WHERE id_osoby = $id_student") or die(mysqli_error($link));
+    $row = mysqli_fetch_array($result);
 
     ?>
     <h1>Edycja studenta</h1>

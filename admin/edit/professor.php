@@ -12,8 +12,8 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
 
     $id_professor = (int) trim($_GET['id']);
 
-    $result = mysql_query("SELECT imie, nazwisko, email, wykladany_przedmiot FROM Osoba NATURAL JOIN Profesor WHERE id_osoby = $id_professor") or die(mysql_error());
-    $row = mysql_fetch_array($result);
+    $result = mysqli_query($link, "SELECT imie, nazwisko, email, wykladany_przedmiot FROM Osoba NATURAL JOIN Profesor WHERE id_osoby = $id_professor") or die(mysqli_error($link));
+    $row = mysqli_fetch_array($result);
 
     ?>
     <h1>Edycja profesora</h1>

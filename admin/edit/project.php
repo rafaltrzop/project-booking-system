@@ -12,8 +12,8 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
 
     $project_number = (int) trim($_GET['id']);
 
-    $result = mysql_query("SELECT temat FROM Projekt WHERE nr_projektu = $project_number") or die(mysql_error());
-    $row = mysql_fetch_array($result);
+    $result = mysqli_query($link, "SELECT temat FROM Projekt WHERE nr_projektu = $project_number") or die(mysqli_error($link));
+    $row = mysqli_fetch_array($result);
 
     ?>
     <h1>Edycja tematu projektu</h1>

@@ -16,7 +16,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       $project_name = trim($_POST['project_name']);
 
       if (!empty($project_name)) {
-        mysql_query("INSERT INTO Projekt(temat) VALUES('$project_name')") or die(mysql_error());
+        mysqli_query($link, "INSERT INTO Projekt(temat) VALUES('$project_name')") or die(mysqli_error($link));
         echo '<p><span class="fa fa-check fa-success"></span>&ensp;Dodano temat: '.$project_name.'.</p>';
       }
 
@@ -40,11 +40,11 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       $group = trim($_POST['group']);
 
       if (!empty($first_name) && !empty($last_name) && !empty($email) && !empty($group)) {
-        mysql_query('BEGIN') or die(mysql_error());
-        mysql_query("INSERT INTO Osoba(email, imie, nazwisko) VALUES('$email', '$first_name', '$last_name')") or die(mysql_error());
-        $id_osoby = mysql_insert_id();
-        mysql_query("INSERT INTO Student(id_osoby, grupa) VALUES($id_osoby, $group)") or die(mysql_error());
-        mysql_query('COMMIT') or die(mysql_error());
+        mysqli_query($link, 'BEGIN') or die(mysqli_error($link));
+        mysqli_query($link, "INSERT INTO Osoba(email, imie, nazwisko) VALUES('$email', '$first_name', '$last_name')") or die(mysqli_error($link));
+        $id_osoby = mysqli_insert_id($link);
+        mysqli_query($link, "INSERT INTO Student(id_osoby, grupa) VALUES($id_osoby, $group)") or die(mysqli_error($link));
+        mysqli_query($link, 'COMMIT') or die(mysqli_error($link));
 
         echo '<p><span class="fa fa-check fa-success"></span>&ensp;Dodano studenta: '.$first_name.' '.$last_name.'.</p>';
       }
@@ -89,11 +89,11 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       $school_subject = trim($_POST['school_subject']);
 
       if (!empty($first_name) && !empty($last_name) && !empty($email) && !empty($school_subject)) {
-        mysql_query('BEGIN') or die(mysql_error());
-        mysql_query("INSERT INTO Osoba(email, imie, nazwisko) VALUES('$email', '$first_name', '$last_name')") or die(mysql_error());
-        $id_osoby = mysql_insert_id();
-        mysql_query("INSERT INTO Profesor VALUES($id_osoby, '$school_subject')") or die(mysql_error());
-        mysql_query('COMMIT') or die(mysql_error());
+        mysqli_query($link, 'BEGIN') or die(mysqli_error($link));
+        mysqli_query($link, "INSERT INTO Osoba(email, imie, nazwisko) VALUES('$email', '$first_name', '$last_name')") or die(mysqli_error($link));
+        $id_osoby = mysqli_insert_id($link);
+        mysqli_query($link, "INSERT INTO Profesor VALUES($id_osoby, '$school_subject')") or die(mysqli_error($link));
+        mysqli_query($link, 'COMMIT') or die(mysqli_error($link));
 
         echo '<p><span class="fa fa-check fa-success"></span>&ensp;Dodano profesora: '.$first_name.' '.$last_name.'.</p>';
       }
