@@ -1,0 +1,25 @@
+<?php
+
+# Credentials
+$url = getenv('JAWSDB_URL');
+$dbparts = parse_url($url);
+
+$dbhost = $dbparts['host'];
+$dbuser = $dbparts['user'];
+$dbpass = $dbparts['pass'];
+$dbname = ltrim($dbparts['path'],'/');
+
+# Set up a connection
+$conn = mysql_connect($dbhost, $dbuser, $dbpass);
+
+if (!$conn) {
+  die(mysql_error());
+}
+
+# Set charset
+mysql_set_charset('utf8');
+
+# Select database
+mysql_select_db($dbname);
+
+?>
