@@ -32,11 +32,11 @@
   $ mysql DB_NAME -u USERNAME -pPASSWORD < database_data.sql
   ```
 
-5. Create your connection file and update credentials:
+5. Create and update your credentials file:
 
   ```
-  $ cp connection.php.example connection.php
-  $ vim connection.php
+  $ cp database_credentials.php.example database_credentials.php
+  $ vim database_credentials.php
   ```
 
 ## Development

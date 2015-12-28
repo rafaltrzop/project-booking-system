@@ -1,15 +1,7 @@
 <?php
 
-# Credentials
-$url = getenv('JAWSDB_URL');
-$dbparts = parse_url($url);
+include('database_credentials.php');
 
-$hostname = $dbparts['host'];
-$username = $dbparts['user'];
-$password = $dbparts['pass'];
-$database = ltrim($dbparts['path'],'/');
-
-# Set up a connection
 $link = mysqli_connect($hostname, $username, $password, $database);
 
 if (!$link) {
@@ -19,7 +11,6 @@ if (!$link) {
   exit;
 }
 
-# Set charset
 mysqli_set_charset($link, 'utf8');
 
 ?>

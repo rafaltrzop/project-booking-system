@@ -6,7 +6,7 @@
   "scripts": {
     "start": "gulp",
     "build": "gulp sass",
-    "postinstall": "bower install && gulp sass && cp connection.php.heroku connection.php"
+    "postinstall": "bower install && gulp sass && cp database_credentials.php.heroku database_credentials.php"
   },
   "repository": {
     "type": "git",
