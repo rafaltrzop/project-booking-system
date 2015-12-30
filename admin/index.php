@@ -9,7 +9,18 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
 <main class="body-content-container">
   <div class="row">
     <div class="small-12 columns">
+      <!-- TABELA OSOBA -->
       <h1>Tabela Osoba</h1>
+      <?php
+
+      $result = mysqli_query($link, 'SELECT * FROM Osoba') or die(mysqli_error($link));
+      $row_count = mysqli_num_rows($result);
+
+      if ($row_count == 0):
+
+      ?>
+      <p>Brak danych do wyświetlenia &mdash; tabela jest pusta.</p>
+      <?php else: ?>
       <table>
         <thead>
           <tr>
@@ -22,7 +33,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         <tbody>
           <?php
 
-          $result = mysqli_query($link, 'SELECT * FROM Osoba') or die(mysqli_error($link));
           while ($row = mysqli_fetch_array($result)) {
             echo "<tr>
                     <td>$row[0]</td>
@@ -35,8 +45,20 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
           ?>
         </tbody>
       </table>
+      <?php endif; ?>
 
+      <!-- TABELA STUDENT -->
       <h1>Tabela Student</h1>
+      <?php
+
+      $result = mysqli_query($link, 'SELECT * FROM Student') or die(mysqli_error($link));
+      $row_count = mysqli_num_rows($result);
+
+      if ($row_count == 0):
+
+      ?>
+      <p>Brak danych do wyświetlenia &mdash; tabela jest pusta.</p>
+      <?php else: ?>
       <table>
         <thead>
           <tr>
@@ -48,7 +70,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         <tbody>
           <?php
 
-          $result = mysqli_query($link, 'SELECT * FROM Student') or die(mysqli_error($link));
           while ($row = mysqli_fetch_array($result)) {
             echo "<tr>
                     <td>$row[0]</td>
@@ -60,8 +81,20 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
           ?>
         </tbody>
       </table>
+      <?php endif; ?>
 
+      <!-- TABELA PROFESOR -->
       <h1>Tabela Profesor</h1>
+      <?php
+
+      $result = mysqli_query($link, 'SELECT * FROM Profesor') or die(mysqli_error($link));
+      $row_count = mysqli_num_rows($result);
+
+      if ($row_count == 0):
+
+      ?>
+      <p>Brak danych do wyświetlenia &mdash; tabela jest pusta.</p>
+      <?php else: ?>
       <table>
         <thead>
           <tr>
@@ -72,7 +105,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         <tbody>
           <?php
 
-          $result = mysqli_query($link, 'SELECT * FROM Profesor') or die(mysqli_error($link));
           while ($row = mysqli_fetch_array($result)) {
             echo "<tr>
                     <td>$row[0]</td>
@@ -83,8 +115,20 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
           ?>
         </tbody>
       </table>
+      <?php endif; ?>
 
+      <!-- TABELA PROJEKT -->
       <h1>Tabela Projekt</h1>
+      <?php
+
+      $result = mysqli_query($link, 'SELECT * FROM Projekt') or die(mysqli_error($link));
+      $row_count = mysqli_num_rows($result);
+
+      if ($row_count == 0):
+
+      ?>
+      <p>Brak danych do wyświetlenia &mdash; tabela jest pusta.</p>
+      <?php else: ?>
       <table>
         <thead>
           <tr>
@@ -95,7 +139,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         <tbody>
           <?php
 
-          $result = mysqli_query($link, 'SELECT * FROM Projekt') or die(mysqli_error($link));
           while ($row = mysqli_fetch_array($result)) {
             echo "<tr>
                     <td>$row[0]</td>
@@ -106,8 +149,20 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
           ?>
         </tbody>
       </table>
+      <?php endif; ?>
 
+      <!-- TABELA WYKONANY_PROJEKT -->
       <h1>Tabela Wykonany_projekt</h1>
+      <?php
+
+      $result = mysqli_query($link, 'SELECT * FROM Wykonany_projekt') or die(mysqli_error($link));
+      $row_count = mysqli_num_rows($result);
+
+      if ($row_count == 0):
+
+      ?>
+      <p>Brak danych do wyświetlenia &mdash; tabela jest pusta.</p>
+      <?php else: ?>
       <table>
         <thead>
           <tr>
@@ -120,7 +175,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         <tbody>
           <?php
 
-          $result = mysqli_query($link, 'SELECT * FROM Wykonany_projekt') or die(mysqli_error($link));
           while ($row = mysqli_fetch_array($result)) {
             echo "<tr>
                     <td>$row[0]</td>
@@ -133,6 +187,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
           ?>
         </tbody>
       </table>
+      <?php endif; ?>
     </div>
   </div>
 </main>
