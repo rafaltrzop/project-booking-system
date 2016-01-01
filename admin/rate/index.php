@@ -8,6 +8,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
 
 <main class="body-content-container">
   <div class="column row">
+    <h1 id="Ocen_wykonane_projekty">Oceń wykonane projekty</h1>
     <?php
 
     $mark_without_id_proffesor = FALSE;
@@ -25,9 +26,20 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       }
     }
 
-    ?>
+    $result1 = mysqli_query($link, "SELECT wp.data_oddania, os.imie, os.nazwisko, p.temat, op.imie, op.nazwisko, wp.ocena, wp.id_osoby_student
+                                    FROM Wykonany_projekt wp LEFT JOIN Student s ON wp.id_osoby_student = s.id_osoby
+                                    LEFT JOIN Osoba os ON s.id_osoby = os.id_osoby
+                                    LEFT JOIN Projekt p ON s.nr_projektu = p.nr_projektu
+                                    LEFT JOIN Osoba op ON wp.id_osoby_profesor = op.id_osoby
+                                    ORDER BY data_oddania DESC") or die(mysqli_error($link));
+    $result2 = mysqli_query($link, "SELECT id_osoby, imie, nazwisko FROM Osoba NATURAL JOIN Profesor") or die(mysqli_error($link));
+    $row_count = mysqli_num_rows($result1);
 
-    <h1 id="Ocen_wykonane_projekty">Oceń wykonane projekty</h1>
+    if ($row_count == 0):
+
+    ?>
+    <p>Żaden ze studentów nie zgłosił swojego projektu do oceny &mdash; sprawdź ponownie później.</p>
+    <?php else: ?>
     <p>Aby podzielić pracę oceniania między kilku profesorów wystarczy przypisać danemu projektowi oceniającego bez wybierania oceny.</p>
     <table>
       <thead>
@@ -43,13 +55,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       <tbody>
         <?php
 
-        $result1 = mysqli_query($link, "SELECT wp.data_oddania, os.imie, os.nazwisko, p.temat, op.imie, op.nazwisko, wp.ocena, wp.id_osoby_student
-                                FROM Wykonany_projekt wp LEFT JOIN Student s ON wp.id_osoby_student = s.id_osoby
-                                LEFT JOIN Osoba os ON s.id_osoby = os.id_osoby
-                                LEFT JOIN Projekt p ON s.nr_projektu = p.nr_projektu
-                                LEFT JOIN Osoba op ON wp.id_osoby_profesor = op.id_osoby
-                                ORDER BY data_oddania DESC") or die(mysqli_error($link));
-        $result2 = mysqli_query($link, "SELECT id_osoby, imie, nazwisko FROM Osoba NATURAL JOIN Profesor") or die(mysqli_error($link));
         while ($row1 = mysqli_fetch_array($result1)) {
           echo '<tr>
                   <td>'.$row1[0].'</td>
@@ -105,6 +110,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         ?>
       </tbody>
     </table>
+    <?php endif; ?>
   </div>
 </main>
 
