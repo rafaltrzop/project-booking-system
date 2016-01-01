@@ -126,6 +126,7 @@ table {
 .btn-landing-page {
   @include button-style($white, $white, $button-color-alt);
   display: block;
+  transition: box-shadow .4s;
   &:hover {
     box-shadow: 0 0 rem-calc(50) rgba(255, 255, 255, 0.3);
   }
