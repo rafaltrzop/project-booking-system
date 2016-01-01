@@ -21,7 +21,14 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         echo '<p><span class="fa fa-check fa-success"></span>&ensp;Zmieniono nazwę tematu projektu na: '.$project_name.'.</p>';
       }
 
+      $result = mysqli_query($link, 'SELECT * FROM Projekt ORDER BY temat') or die(mysqli_error($link));
+      $row_count = mysqli_num_rows($result);
+
+      if ($row_count == 0):
+
       ?>
+      <p>Do systemu nie wprowadzono jeszcze żadnego tematu &mdash; dodaj nowy temat.</p>
+      <?php else: ?>
       <table>
         <thead>
           <tr>
@@ -32,7 +39,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         <tbody>
           <?php
 
-          $result = mysqli_query($link, 'SELECT * FROM Projekt ORDER BY temat') or die(mysqli_error($link));
           while ($row = mysqli_fetch_array($result)) {
             echo '<tr>
                     <td>'.$row[1].'</td>
@@ -45,6 +51,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
           ?>
         </tbody>
       </table>
+      <?php endif; ?>
 
       <!-- EDYCJA STUDENTA -->
       <h1 id="Edytuj_studenta">Edytuj studenta</h1>
@@ -65,7 +72,14 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         echo '<p><span class="fa fa-check fa-success"></span>&ensp;Zaktualizowano dane studenta: '.$first_name.' '.$last_name.'.</p>';
       }
 
+      $result = mysqli_query($link, 'SELECT imie, nazwisko, email, grupa, id_osoby FROM Student NATURAL JOIN Osoba ORDER BY imie, nazwisko') or die(mysqli_error($link));
+      $row_count = mysqli_num_rows($result);
+
+      if ($row_count == 0):
+
       ?>
+      <p>Do systemu nie wprowadzono jeszcze żadnego studenta &mdash; dodaj nowego studenta.</p>
+      <?php else: ?>
       <table>
         <thead>
           <tr>
@@ -78,7 +92,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         <tbody>
           <?php
 
-          $result = mysqli_query($link, 'SELECT imie, nazwisko, email, grupa, id_osoby FROM Student NATURAL JOIN Osoba ORDER BY imie, nazwisko') or die(mysqli_error($link));
           while ($row = mysqli_fetch_array($result)) {
             echo '<tr>
                     <td>'.$row[0].' '.$row[1].'</td>
@@ -92,6 +105,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
           ?>
         </tbody>
       </table>
+      <?php endif; ?>
 
       <!-- EDYCJA PROFESORA -->
       <h1 id="Edytuj_profesora">Edytuj profesora</h1>
@@ -112,7 +126,14 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         echo '<p><span class="fa fa-check fa-success"></span>&ensp;Zaktualizowano dane profesora: '.$first_name.' '.$last_name.'.</p>';
       }
 
+      $result = mysqli_query($link, 'SELECT imie, nazwisko, email, wykladany_przedmiot, id_osoby FROM Profesor NATURAL JOIN Osoba ORDER BY imie, nazwisko') or die(mysqli_error($link));
+      $row_count = mysqli_num_rows($result);
+
+      if ($row_count == 0):
+
       ?>
+      <p>Do systemu nie wprowadzono jeszcze żadnego profesora &mdash; dodaj nowego profesora.</p>
+      <?php else: ?>
       <table>
         <thead>
           <tr>
@@ -125,7 +146,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         <tbody>
           <?php
 
-          $result = mysqli_query($link, 'SELECT imie, nazwisko, email, wykladany_przedmiot, id_osoby FROM Profesor NATURAL JOIN Osoba ORDER BY imie, nazwisko') or die(mysqli_error($link));
           while ($row = mysqli_fetch_array($result)) {
             echo '<tr>
                     <td>'.$row[0].' '.$row[1].'</td>
@@ -139,6 +159,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
           ?>
         </tbody>
       </table>
+      <?php endif; ?>
     </div>
   </div>
 </main>
