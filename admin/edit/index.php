@@ -27,7 +27,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       if ($row_count == 0):
 
       ?>
-      <p>Do systemu nie wprowadzono jeszcze żadnego tematu &mdash; dodaj nowy temat.</p>
+      <p>W systemie nie ma ani jednego tematu projektu &mdash; dodaj nowy temat.</p>
       <?php else: ?>
       <table>
         <thead>
@@ -78,7 +78,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       if ($row_count == 0):
 
       ?>
-      <p>Do systemu nie wprowadzono jeszcze żadnego studenta &mdash; dodaj nowego studenta.</p>
+      <p>W systemie nie ma ani jednego studenta &mdash; dodaj nowego studenta.</p>
       <?php else: ?>
       <table>
         <thead>
@@ -132,7 +132,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       if ($row_count == 0):
 
       ?>
-      <p>Do systemu nie wprowadzono jeszcze żadnego profesora &mdash; dodaj nowego profesora.</p>
+      <p>W systemie nie ma ani jednego profesora &mdash; dodaj nowego profesora.</p>
       <?php else: ?>
       <table>
         <thead>
