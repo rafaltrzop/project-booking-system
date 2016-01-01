@@ -22,27 +22,32 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         echo '<p><span class="fa fa-check fa-success"></span>&ensp;Wybrany temat projektu został usunięty (ID'.$project_number.').</p>';
       }
 
+      $result = mysqli_query($link, 'SELECT * FROM Projekt ORDER BY temat') or die(mysqli_error($link));
+      $row_count = mysqli_num_rows($result);
+
+      if ($row_count == 0):
+
       ?>
+      <p>W systemie nie ma ani jednego tematu projektu &mdash; dodaj nowy temat.</p>
+      <?php else: ?>
       <form action="/admin/delete/index.php#Usun_temat_projektu" method="post">
-        <label>
-          <ol>
-            <?php
+        <ol>
+          <?php
 
-            $result = mysqli_query($link, 'SELECT * FROM Projekt ORDER BY temat') or die(mysqli_error($link));
-            while ($row = mysqli_fetch_array($result)) {
-              echo '<li>
-                      <label>
-                        <input type="radio" name="project_number" value="'.$row[0].'" required>&ensp;'.$row[1].'
-                      </label>
-                    </li>';
-            }
+          while ($row = mysqli_fetch_array($result)) {
+            echo '<li>
+                    <label>
+                      <input type="radio" name="project_number" value="'.$row[0].'" required>&ensp;'.$row[1].'
+                    </label>
+                  </li>';
+          }
 
-            ?>
-          </ol>
-        </label>
+          ?>
+        </ol>
 
         <button type="submit" class="hollow button">Usuń wybrany temat</button>
       </form>
+      <?php endif; ?>
 
       <!-- USUWANIE STUDENTA -->
       <h1 id="Usun_studenta">Usuń studenta</h1>
@@ -55,7 +60,14 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         echo '<p><span class="fa fa-check fa-success"></span>&ensp;Wybrany student został usunięty (ID'.$id_student.').</p>';
       }
 
+      $result = mysqli_query($link, 'SELECT imie, nazwisko, email, grupa, id_osoby FROM Student NATURAL JOIN Osoba ORDER BY imie, nazwisko') or die(mysqli_error($link));
+      $row_count = mysqli_num_rows($result);
+
+      if ($row_count == 0):
+
       ?>
+      <p>W systemie nie ma ani jednego studenta &mdash; dodaj nowego studenta.</p>
+      <?php else: ?>
       <table>
         <thead>
           <tr>
@@ -68,7 +80,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         <tbody>
           <?php
 
-          $result = mysqli_query($link, 'SELECT imie, nazwisko, email, grupa, id_osoby FROM Student NATURAL JOIN Osoba ORDER BY imie, nazwisko') or die(mysqli_error($link));
           while ($row = mysqli_fetch_array($result)) {
             echo '<tr>
                     <td>'.$row[0].' '.$row[1].'</td>
@@ -85,6 +96,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
           ?>
         </tbody>
       </table>
+      <?php endif; ?>
 
       <!-- USUWANIE PROFESORA -->
       <h1 id="Usun_profesora">Usuń profesora</h1>
@@ -97,7 +109,14 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         echo '<p><span class="fa fa-check fa-success"></span>&ensp;Wybrany profesor został usunięty (ID'.$id_professor.').</p>';
       }
 
+      $result = mysqli_query($link, 'SELECT imie, nazwisko, email, wykladany_przedmiot, id_osoby FROM Profesor NATURAL JOIN Osoba ORDER BY imie, nazwisko') or die(mysqli_error($link));
+      $row_count = mysqli_num_rows($result);
+
+      if ($row_count == 0):
+
       ?>
+      <p>W systemie nie ma ani jednego profesora &mdash; dodaj nowego profesora.</p>
+      <?php else: ?>
       <table>
         <thead>
           <tr>
@@ -110,7 +129,6 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         <tbody>
           <?php
 
-          $result = mysqli_query($link, 'SELECT imie, nazwisko, email, wykladany_przedmiot, id_osoby FROM Profesor NATURAL JOIN Osoba ORDER BY imie, nazwisko') or die(mysqli_error($link));
           while ($row = mysqli_fetch_array($result)) {
             echo '<tr>
                     <td>'.$row[0].' '.$row[1].'</td>
@@ -127,6 +145,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
           ?>
         </tbody>
       </table>
+      <?php endif; ?>
     </div>
   </div>
 </main>
