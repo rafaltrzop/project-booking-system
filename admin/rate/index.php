@@ -41,7 +41,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
     <p>Żaden ze studentów nie zgłosił swojego projektu do oceny &mdash; sprawdź ponownie później.</p>
     <?php else: ?>
     <p>Aby podzielić pracę oceniania między kilku profesorów wystarczy przypisać danemu projektowi oceniającego bez wybierania oceny.</p>
-    <table>
+    <table class="scroll">
       <thead>
         <tr>
           <th>Data</th>

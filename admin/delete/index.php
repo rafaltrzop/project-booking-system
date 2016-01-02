@@ -68,7 +68,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       ?>
       <p>W systemie nie ma ani jednego studenta &mdash; dodaj nowego studenta.</p>
       <?php else: ?>
-      <table>
+      <table class="scroll">
         <thead>
           <tr>
             <th>Imię i nazwisko</th>
@@ -117,7 +117,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       ?>
       <p>W systemie nie ma ani jednego profesora &mdash; dodaj nowego profesora.</p>
       <?php else: ?>
-      <table>
+      <table class="scroll">
         <thead>
           <tr>
             <th>Imię i nazwisko</th>

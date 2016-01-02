@@ -21,7 +21,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       ?>
       <p>Brak danych do wyświetlenia &mdash; tabela jest pusta.</p>
       <?php else: ?>
-      <table>
+      <table class="scroll">
         <thead>
           <tr>
             <th>id_osoby</th>
@@ -59,7 +59,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       ?>
       <p>Brak danych do wyświetlenia &mdash; tabela jest pusta.</p>
       <?php else: ?>
-      <table>
+      <table class="scroll">
         <thead>
           <tr>
             <th>id_osoby</th>
@@ -95,7 +95,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       ?>
       <p>Brak danych do wyświetlenia &mdash; tabela jest pusta.</p>
       <?php else: ?>
-      <table>
+      <table class="scroll">
         <thead>
           <tr>
             <th>id_osoby</th>
@@ -129,7 +129,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       ?>
       <p>Brak danych do wyświetlenia &mdash; tabela jest pusta.</p>
       <?php else: ?>
-      <table>
+      <table class="scroll">
         <thead>
           <tr>
             <th>nr_projektu</th>
@@ -163,7 +163,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       ?>
       <p>Brak danych do wyświetlenia &mdash; tabela jest pusta.</p>
       <?php else: ?>
-      <table>
+      <table class="scroll">
         <thead>
           <tr>
             <th>id_osoby_student</th>
