@@ -80,8 +80,8 @@ main h1 {
 }
 
 select:focus {
-  border: 1px solid $dark-gray;
-  box-shadow: 0 0 5px $medium-gray;
+  border: rem-calc(1) solid $dark-gray;
+  box-shadow: 0 0 rem-calc(5) $medium-gray;
   outline: none;
   transition: box-shadow 0.5s, border-color 0.25s ease-in-out;
 }
@@ -94,11 +94,12 @@ table {
   th {
     white-space: nowrap;
   }
-  & select {
+  select {
     width: initial;
     margin-bottom: 0;
   }
-  & .button, & p {
+  p,
+  .button {
     margin-bottom: 0;
   }
 }
@@ -124,14 +125,13 @@ table {
   &-text {
     margin: rem-calc(24) auto rem-calc(30) auto;
   }
-}
-
-.btn-landing-page {
-  @include button-style($white, $white, $button-color-alt);
-  display: block;
-  transition: box-shadow .4s;
-  &:hover {
-    box-shadow: 0 0 rem-calc(50) rgba(255, 255, 255, 0.3);
+  &-btn {
+    @include button-style($white, $white, $button-color-alt);
+    display: block;
+    transition: box-shadow .4s;
+    &:hover {
+      box-shadow: 0 0 rem-calc(50) rgba(255, 255, 255, 0.3);
+    }
   }
 }
 
@@ -151,17 +151,18 @@ table {
   width: initial;
 }
 
-.fa-success {
-  color: green;
-}
-
-.fa-error {
-  color: red;
+.fa {
+  &-success {
+    color: green;
+  }
+  &-error {
+    color: red;
+  }
 }
 
 @include mui-series {
   .landing-page-text { @include mui-queue(2s, -.8s, fade); }
-  .btn-landing-page { @include mui-queue(.8s, 0, fade); }
+  .landing-page-btn { @include mui-queue(.8s, 0, fade); }
 }
 
 @include breakpoint(medium) {
@@ -172,12 +173,12 @@ table {
     &-text {
       margin: rem-calc(48) auto rem-calc(60) auto;
     }
+    &-btn {
+      margin-right: rem-calc(16);
+      display: inline;
+    }
   }
 
-  .btn-landing-page {
-    margin-right: rem-calc(16);
-    display: inline;
-  }
 }
 
 @include breakpoint(xlarge) {

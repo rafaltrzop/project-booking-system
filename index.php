@@ -10,8 +10,8 @@ include('partials/head.php');
     <span class="landing-page-logo fa fa-graduation-cap"></span>
     <div class="is-animating">
       <h1 class="landing-page-text">System&nbsp;rezerwacji tematów&nbsp;projektów</h1>
-      <a href="/user" class="large button btn-landing-page">Panel studenta</a>
-      <a href="/admin" class="large button btn-landing-page">Panel profesora</a>
+      <a href="/user" class="large button landing-page-btn">Panel studenta</a>
+      <a href="/admin" class="large button landing-page-btn">Panel profesora</a>
     </div>
   </div>
 </section>
