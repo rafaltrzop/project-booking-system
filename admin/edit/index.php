@@ -83,7 +83,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       <table class="scroll">
         <thead>
           <tr>
-            <th>Imię i nazwisko</th>
+            <th>Student</th>
             <th>E-mail</th>
             <th>Grupa</th>
             <th class="text-center">Opcje</th>
@@ -137,7 +137,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       <table class="scroll">
         <thead>
           <tr>
-            <th>Imię i nazwisko</th>
+            <th>Profesor</th>
             <th>E-mail</th>
             <th>Wykładany przedmiot</th>
             <th class="text-center">Opcje</th>
