@@ -91,6 +91,9 @@ ol {
 }
 
 table {
+  th {
+    white-space: nowrap;
+  }
   & select {
     width: initial;
     margin-bottom: 0;
