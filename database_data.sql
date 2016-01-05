@@ -23,18 +23,18 @@ INSERT INTO Projekt(temat) VALUES
 ### Dodaj przykładowe osoby do bazy
 
 INSERT INTO Osoba(email, imie, nazwisko) VALUES
-('bgraham0@patch.com', 'Barbara', 'Graham'),
-('pgarcia1@blogspot.com', 'Philip', 'Garcia'),
-('rkelly2@home.pl', 'Ralph', 'Kelly'),
-('cadams3@businessinsider.com', 'Catherine', 'Adams'),
-('jking4@wikispaces.com', 'James', 'King'),
-('clawson5@nature.com', 'Cynthia', 'Lawson'),
-('cray6@dropbox.com', 'Christina', 'Ray'),
-('agraham7@jugem.jp', 'Angela', 'Graham'),
-('pclark8@state.gov', 'Pamela', 'Clark'),
-('dgarcia9@ucsd.edu', 'Deborah', 'Garcia'),
-('ksandersa@i2i.jp', 'Kevin', 'Sanders'),
-('rstevensb@instagram.com', 'Russell', 'Stevens');
+('solszewski@uj.edu.pl', 'Stanisław', 'Olszewski'),
+('akania@uj.edu.pl', 'Agata', 'Kania'),
+('pszewczyk@uj.edu.pl', 'Paulina', 'Szewczyk'),
+('jkaminska@uj.edu.pl', 'Jagoda', 'Kamińska'),
+('mlewandowski@uj.edu.pl', 'Mateusz', 'Lewandowski'),
+('arogowska@uj.edu.pl', 'Amanda', 'Rogowska'),
+('izielinski@uj.edu.pl', 'Igor', 'Zieliński'),
+('mmatusiak@uj.edu.pl', 'Maria', 'Matusiak'),
+('amalinowski@uj.edu.pl', 'Adam', 'Malinowski'),
+('kwalczak@uj.edu.pl', 'Krzysztof', 'Walczak'),
+('jsawicka@uj.edu.pl', 'Julia', 'Sawicka'),
+('mbielecki@uj.edu.pl', 'Marcin ', 'Bielecki');
 
 ### Dodaj wykonane projekty do bazy
 
@@ -42,8 +42,8 @@ INSERT INTO Wykonany_projekt VALUES
 (1, 11, '2015-12-11', 4.5),
 (3, NULL, '2016-01-21', NULL),
 (4, 11, '2015-12-17', 2.0),
-(9, 12, '2015-12-01', 5.0),
-(2, 11, '2015-12-19', 3.5);
+(9, 12, '2015-12-01', NULL),
+(2, 12, '2015-12-19', 3.5);
 
 ### Dodaj studentów do bazy
 
@@ -52,15 +52,15 @@ INSERT INTO Student VALUES
 (2, 2, 3),
 (3, 3, 5),
 (4, 1, 7),
-(5, 2, 1),
-(6, 3, 4),
+(5, 2, NULL),
+(6, 3, NULL),
 (7, 1, 9),
 (8, 2, 6),
 (9, 3, 10),
-(10, 1, 8);
+(10, 1, NULL);
 
 ### Dodaj profesorów do bazy
 
 INSERT INTO Profesor VALUES
-(11, 'Bazy danych 2 (wykład)'),
-(12, 'Bazy danych 2 (ćwiczenia)');
+(11, 'Bazy danych 1'),
+(12, 'Bazy danych 2');
