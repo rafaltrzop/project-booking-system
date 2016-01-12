@@ -1,10 +1,10 @@
 {
   "name": "project-booking-system",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "authors": [
     "Rafał Trzop"
   ],
-  "description": "Project booking system",
+  "description": "University project booking system",
   "main": "index.php",
   "license": "MIT",
   "homepage": "https://github.com/rafaltrzop/project-booking-system",
