@@ -45,23 +45,21 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_user.html');
           </select>
         </label>
 
-        <label>
-          Wybierz temat:
-          <ol>
-            <?php
+        Wybierz temat:
+        <ol>
+          <?php
 
-            $result = mysqli_query($link, 'SELECT * FROM Projekt ORDER BY temat') or die(mysqli_error($link));
-            while ($row = mysqli_fetch_array($result)) {
-              echo '<li>
-                      <label>
-                        <input type="radio" name="project_number" value="'.$row[0].'" required>&ensp;'.$row[1].'
-                      </label>
-                    </li>';
-            }
+          $result = mysqli_query($link, 'SELECT * FROM Projekt ORDER BY temat') or die(mysqli_error($link));
+          while ($row = mysqli_fetch_array($result)) {
+            echo '<li>
+                    <label>
+                      <input type="radio" name="project_number" value="'.$row[0].'" required>&ensp;'.$row[1].'
+                    </label>
+                  </li>';
+          }
 
-            ?>
-          </ol>
-        </label>
+          ?>
+        </ol>
 
         <button type="submit" class="hollow button">Zarezerwuj temat</button>
       </form>
