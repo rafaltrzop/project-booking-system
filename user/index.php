@@ -33,7 +33,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_user.html');
         <label>
           Wybierz swoje nazwisko:
           <select name="id_student" required>
-            <option value selected></option>
+            <option value selected>&nbsp;</option>
             <?php
 
             $result = mysqli_query($link, "SELECT id_osoby, imie, nazwisko FROM Osoba NATURAL JOIN Student ORDER BY imie, nazwisko") or die(mysqli_error($link));
@@ -89,7 +89,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_user.html');
         <label>
           Wybierz swoje nazwisko:
           <select name="id_student2" required>
-            <option value selected></option>
+            <option value selected>&nbsp;</option>
             <?php
 
             $result = mysqli_query($link, "SELECT id_osoby, imie, nazwisko FROM Osoba NATURAL JOIN Student WHERE nr_projektu IS NOT NULL ORDER BY imie, nazwisko") or die(mysqli_error($link));

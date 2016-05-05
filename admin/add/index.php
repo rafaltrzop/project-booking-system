@@ -69,7 +69,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
         <label>
           Grupa:
           <select name="group" required>
-            <option value selected></option>
+            <option value selected>&nbsp;</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>

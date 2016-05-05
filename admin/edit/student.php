@@ -36,7 +36,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
       <label>
         Grupa:
         <select name="group" required>
-          <option value></option>
+          <option value>&nbsp;</option>
           <option value="1"<?php if ($row[3] == 1) echo ' selected' ?>>1</option>
           <option value="2"<?php if ($row[3] == 2) echo ' selected' ?>>2</option>
           <option value="3"<?php if ($row[3] == 3) echo ' selected' ?>>3</option>

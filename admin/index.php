@@ -68,7 +68,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
                       <select name="id_proffesor" required>
                         <option value="NULL"';
                         if (empty($id_proffesor)) echo ' selected';
-                        echo '></option>
+                        echo '>&nbsp;</option>
 
                         <optgroup label="Oceniający">';
                           while ($row2 = mysqli_fetch_array($result2)) {
@@ -80,7 +80,7 @@ include($_SERVER['DOCUMENT_ROOT'].'/partials/header_admin.html');
                       </select>
 
                       <select name="mark" required>
-                        <option value="NULL" selected></option>
+                        <option value="NULL" selected>&nbsp;</option>
                         <optgroup label="Ocena">
                           <option value="2.0">2.0</option>
                           <option value="2.5">2.5</option>
