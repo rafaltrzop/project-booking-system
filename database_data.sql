@@ -34,7 +34,7 @@ INSERT INTO Osoba(email, imie, nazwisko) VALUES
 ('amalinowski@uj.edu.pl', 'Adam', 'Malinowski'),
 ('kwalczak@uj.edu.pl', 'Krzysztof', 'Walczak'),
 ('jsawicka@uj.edu.pl', 'Julia', 'Sawicka'),
-('mbielecki@uj.edu.pl', 'Marcin ', 'Bielecki');
+('mbielecki@uj.edu.pl', 'Marcin', 'Bielecki');
 
 ### Dodaj wykonane projekty do bazy
 
